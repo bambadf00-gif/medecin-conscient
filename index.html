@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Médecin Conscient | Consultation médicale à Dakar</title>
+    <meta
+      name="description"
+      content="Médecin Conscient propose un accompagnement médical humain et accessible à Dakar, en consultation présentielle et en ligne."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Médecin Conscient | Consultation médicale à Dakar"
+    />
+    <meta
+      property="og:description"
+      content="Une médecine humaine, accessible et attentive, en présentiel ou à distance."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Favicon (emoji en attendant un favicon définitif) -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>"
+    />
+
+    <!-- Google Fonts : Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Manrope", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                DEFAULT: "#168A63",
+                dark: "#0B5D43",
+                light: "#EAF7F1",
+              },
+              bg: "#F8FAF9",
+              ink: {
+                DEFAULT: "#18332A",
+                soft: "#64748B",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+
+      /* Apparition au scroll */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Menu mobile animé */
+      #mobile-menu {
+        overflow: hidden;
+        transition:
+          max-height 0.35s ease,
+          opacity 0.25s ease;
+      }
+
+      /* Focus visible accessible */
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid #168a63;
+        outline-offset: 2px;
+      }
+
+      .btn-float {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .btn-float:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(11, 93, 67, 0.25);
+      }
+
+      .card-hover {
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(11, 93, 67, 0.12);
+      }
+    </style>
+  </head>
+  <body class="bg-bg text-ink antialiased">
+    <!-- ==========================================================
+      HEADER
+      ========================================================== -->
+    <header
+      id="site-header"
+      class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-brand-light transition-shadow"
+    >
+      <div
+        class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="flex items-center gap-2.5 shrink-0"
+          aria-label="Médecin Conscient — Accueil"
+        >
+          <span
+            class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center"
+          >
+            <i data-lucide="stethoscope" class="w-5 h-5 text-brand-dark"></i>
+          </span>
+          <span class="text-lg font-bold text-brand-dark leading-tight"
+            >Médecin Conscient</span
+          >
+        </a>
+
+        <!-- Navigation desktop -->
+        <nav
+          class="hidden md:flex items-center gap-9"
+          aria-label="Navigation principale"
+        >
+          <a
+            href="index.html"
+            class="text-sm font-semibold text-ink hover:text-brand transition-colors"
+            >Accueil</a
+          >
+          <a
+            href="contact.html"
+            class="text-sm font-semibold text-ink hover:text-brand transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <a
+          href="#consultation"
+          class="hidden md:inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+        >
+          Consultation en ligne
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+
+        <!-- Bouton hamburger mobile -->
+        <button
+          id="mobile-menu-toggle"
+          class="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-brand-dark hover:bg-brand-light transition-colors"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Ouvrir le menu de navigation"
+        >
+          <i data-lucide="menu" id="icon-menu-open" class="w-6 h-6"></i>
+          <i data-lucide="x" id="icon-menu-close" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+
+      <!-- Menu mobile -->
+      <div
+        id="mobile-menu"
+        class="md:hidden max-h-0 opacity-0 bg-white border-t border-brand-light"
+      >
+        <nav
+          class="flex flex-col px-5 py-4 gap-1"
+          aria-label="Navigation mobile"
+        >
+          <a
+            href="index.html"
+            class="px-3 py-3 rounded-lg text-sm font-semibold text-ink hover:bg-brand-light"
+            >Accueil</a
+          >
+          <a
+            href="contact.html"
+            class="px-3 py-3 rounded-lg text-sm font-semibold text-ink hover:bg-brand-light"
+            >Contact</a
+          >
+          <a
+            href="#consultation"
+            class="mt-2 inline-flex items-center justify-center gap-2 bg-brand text-white text-sm font-semibold px-5 py-3 rounded-full"
+          >
+            Consultation en ligne
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ==========================================================
+      HERO
+      ========================================================== -->
+      <section class="relative overflow-hidden">
+        <div
+          class="absolute -top-24 -right-24 w-96 h-96 bg-brand-light rounded-full blur-3xl opacity-70 pointer-events-none"
+        ></div>
+
+        <div
+          class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-14 pb-16 lg:pt-20 lg:pb-24"
+        >
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Texte -->
+            <div data-reveal>
+              <span
+                class="inline-flex items-center gap-2 bg-brand-light text-brand-dark text-xs font-bold px-4 py-2 rounded-full"
+              >
+                <i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i>
+                Médecine humaine &amp; accessible
+              </span>
+
+              <p class="mt-4 text-sm font-semibold text-brand-dark">
+                Médecin • Créateur de contenu • Sensibilisation santé
+              </p>
+
+              <h1
+                class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] text-ink"
+              >
+                Votre santé mérite une attention qui fait la différence.
+              </h1>
+
+              <p
+                class="mt-6 text-base sm:text-lg text-ink-soft leading-relaxed max-w-xl"
+              >
+                Médecin Conscient vous accompagne avec une approche médicale
+                humaine, attentive et accessible, en consultation présentielle
+                ou à distance.
+              </p>
+
+              <div class="mt-8 flex flex-col sm:flex-row gap-3.5">
+                <a
+                  href="contact.html"
+                  class="inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-3.5 rounded-full transition-colors"
+                >
+                  Prendre contact
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a
+                  href="#consultation"
+                  class="inline-flex items-center justify-center gap-2 bg-white border border-brand/30 hover:border-brand text-brand-dark font-semibold px-7 py-3.5 rounded-full transition-colors"
+                >
+                  Consulter en ligne
+                </a>
+              </div>
+
+              <!-- Indicateurs -->
+              <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i data-lucide="ear" class="w-5 h-5 text-brand-dark"></i>
+                  </span>
+                  <span class="text-sm font-semibold text-ink"
+                    >Écoute attentive</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <span
+                    class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i data-lucide="video" class="w-5 h-5 text-brand-dark"></i>
+                  </span>
+                  <span class="text-sm font-semibold text-ink"
+                    >Consultation à distance</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <span
+                    class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center shrink-0"
+                  >
+                    <i
+                      data-lucide="hand-heart"
+                      class="w-5 h-5 text-brand-dark"
+                    ></i>
+                  </span>
+                  <span class="text-sm font-semibold text-ink"
+                    >Accompagnement personnalisé</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Image -->
+            <div class="relative" data-reveal>
+              <div
+                class="absolute -z-10 -bottom-6 -left-6 w-2/3 h-2/3 bg-brand-light rounded-3xl"
+                aria-hidden="true"
+              ></div>
+              <img
+                src="assets/images/img2.png"
+                alt="Illustration d'une consultation médicale à distance entre un médecin et un patient"
+                class="w-full h-[420px] sm:h-[480px] object-cover rounded-3xl shadow-xl"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+        PRÉSENTATION
+        ========================================================== -->
+      <section id="presentation" class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Photo -->
+            <div data-reveal class="order-2 lg:order-1">
+              <div class="relative max-w-md mx-auto lg:mx-0">
+                <div
+                  class="absolute -z-10 -top-5 -right-5 w-full h-full bg-brand-light rounded-3xl"
+                  aria-hidden="true"
+                ></div>
+                <img
+                  src="assets/images/img1.png"
+                  alt="Photo du médecin, Médecin Conscient"
+                  class="w-full h-[380px] sm:h-[440px] object-cover rounded-3xl shadow-lg"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <!-- Texte -->
+            <div data-reveal class="order-1 lg:order-2">
+              <span class="text-xs font-bold text-brand-dark tracking-wide"
+                >Une médecine à l'écoute</span
+              >
+
+              <h2
+                class="mt-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
+              >
+                À propos de Médecin Conscient
+              </h2>
+
+              <p class="mt-3 text-lg font-semibold text-ink">
+                Une approche médicale basée sur l'écoute et la confiance.
+              </p>
+
+              <p class="mt-5 text-ink-soft leading-relaxed">
+                Médecin Conscient place l'humain au cœur de la prise en charge.
+                Chaque consultation est l'occasion d'écouter, de comprendre et
+                d'accompagner le patient avec attention et bienveillance.
+              </p>
+
+              <p class="mt-4 text-ink-soft leading-relaxed">
+                Que vous souhaitiez consulter en présentiel ou à distance,
+                l'objectif est de vous proposer un accompagnement clair,
+                professionnel et adapté à votre situation.
+              </p>
+
+              <ul class="mt-7 grid sm:grid-cols-2 gap-3.5">
+                <li
+                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
+                >
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand shrink-0"
+                  ></i>
+                  Écoute et bienveillance
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
+                >
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand shrink-0"
+                  ></i>
+                  Consultation présentielle
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
+                >
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand shrink-0"
+                  ></i>
+                  Consultation en ligne
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
+                >
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-5 h-5 text-brand shrink-0"
+                  ></i>
+                  Suivi personnalisé
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+        MISSION
+        ========================================================== -->
+      <section id="mission" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div class="max-w-2xl mx-auto text-center" data-reveal>
+            <h2
+              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
+            >
+              Faire de la santé une conversation accessible à tous.
+            </h2>
+            <p class="mt-4 text-ink-soft leading-relaxed">
+              Informer, prévenir et sensibiliser pour aider chacun à mieux
+              comprendre les enjeux liés à sa santé.
+            </p>
+          </div>
+
+          <div class="mt-12 grid sm:grid-cols-3 gap-6">
+            <!-- Comprendre -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center"
+            >
+              <span
+                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i data-lucide="lightbulb" class="w-6 h-6 text-brand-dark"></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Comprendre</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Rendre les sujets de santé plus simples et plus accessibles.
+              </p>
+            </div>
+
+            <!-- Prévenir -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center"
+            >
+              <span
+                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i
+                  data-lucide="shield-check"
+                  class="w-6 h-6 text-brand-dark"
+                ></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Prévenir</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Encourager chacun à adopter de bonnes habitudes et à mieux
+                connaître les risques liés à sa santé.
+              </p>
+            </div>
+
+            <!-- Sensibiliser -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center"
+            >
+              <span
+                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i data-lucide="megaphone" class="w-6 h-6 text-brand-dark"></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Sensibiliser</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Partager des informations utiles et contribuer à une meilleure
+                culture de santé.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+        SERVICES
+        ========================================================= -->
+      <section id="services" class="py-20 lg:py-28 bg-bg">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div class="max-w-2xl" data-reveal>
+            <h2
+              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
+            >
+              Nos services
+            </h2>
+            <p class="mt-4 text-ink-soft leading-relaxed">
+              Une prise en charge adaptée à vos besoins, en présentiel comme à
+              distance.
+            </p>
+          </div>
+
+          <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Carte 1 -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
+            >
+              <span
+                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i
+                  data-lucide="stethoscope"
+                  class="w-6 h-6 text-brand-dark"
+                ></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Consultation présentielle</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Un échange médical au cabinet pour évaluer votre situation et
+                vous accompagner dans votre prise en charge.
+              </p>
+            </div>
+
+            <!-- Carte 2 -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
+            >
+              <span
+                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i data-lucide="monitor" class="w-6 h-6 text-brand-dark"></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Consultation en ligne</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Échangez avec le médecin à distance lorsque vous ne pouvez pas
+                vous déplacer.
+              </p>
+            </div>
+
+            <!-- Carte 3 -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
+            >
+              <span
+                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i
+                  data-lucide="clipboard-list"
+                  class="w-6 h-6 text-brand-dark"
+                ></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Suivi médical</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Un accompagnement adapté pour assurer le suivi de votre
+                situation dans le temps.
+              </p>
+            </div>
+
+            <!-- Carte 4 -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
+            >
+              <span
+                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i data-lucide="image-plus" class="w-5 h-5 text-brand-dark"></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Conseils et prévention</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Des conseils pour mieux comprendre votre santé et adopter les
+                bons réflexes.
+              </p>
+            </div>
+
+            <!--Carte 5 -->
+            <div
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
+            >
+              <span
+                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <i data-lucide="megaphone" class="w-6 h-6 text-brand-dark"></i>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Publicité / Collaboration</h3>
+              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
+                Partenariats et visibilité pour des projets médicaux ou
+                éducatifs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+      RÉSEAUX SOCIAUX
+      ========================================================== -->
+      <section id="reseaux-sociaux" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div class="max-w-2xl mx-auto text-center" data-reveal>
+            <h2
+              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
+            >
+              Suivez Médecin Conscient
+            </h2>
+            <p class="mt-4 text-ink-soft leading-relaxed">
+              Retrouvez des contenus de santé, de prévention et de
+              sensibilisation sur les réseaux sociaux.
+            </p>
+          </div>
+
+          <div class="mt-12 grid sm:grid-cols-3 gap-6">
+            <!-- TikTok -->
+            <a
+              href="https://www.tiktok.com/@medecin_conscient?_r=1&_t=ZS-99cRrbFBkq0"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center block"
+            >
+              <span
+                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6 text-brand-dark"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"
+                  />
+                </svg>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">TikTok</h3>
+              <p class="mt-1 text-2xl font-extrabold text-brand-dark">+2,5 M</p>
+              <span
+                class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
+              >
+                Suivre
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/medecinconscient?stkn=MTh5ejA1ZHozZmxjcw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center block"
+            >
+              <span
+                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 text-brand-dark"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Instagram</h3>
+              <p class="mt-1 text-2xl font-extrabold text-brand-dark">+112 K</p>
+              <span
+                class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
+              >
+                Suivre
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+
+            <!-- Facebook -->
+            <a
+              href="https://www.facebook.com/share/18tf2bpnhR/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal
+              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center block"
+            >
+              <span
+                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 text-brand-dark"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </span>
+              <h3 class="mt-5 font-bold text-ink">Facebook</h3>
+              <p class="mt-1 text-2xl font-extrabold text-brand-dark">+136 K</p>
+              <span
+                class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
+              >
+                Suivre
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </a>
+          </div>
+
+          <p class="mt-10 text-center text-sm font-semibold text-ink-soft">
+            Communauté totale :
+            <span class="text-brand-dark font-extrabold">+2,7 M+</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+        CONSULTATION EN LIGNE
+        ========================================================== -->
+      <section id="consultation" class="py-20 lg:py-28 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div class="max-w-2xl mx-auto text-center" data-reveal>
+            <h2
+              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
+            >
+              Consultez votre médecin en ligne
+            </h2>
+            <p class="mt-4 text-ink-soft leading-relaxed">
+              Vous ne pouvez pas vous déplacer ? Décrivez votre situation et
+              envoyez les informations nécessaires afin de demander une
+              consultation en ligne.
+            </p>
+          </div>
+
+          <div class="mt-14 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <!-- Étapes -->
+            <div data-reveal class="lg:sticky lg:top-28">
+              <ol class="space-y-8">
+                <li class="flex gap-4">
+                  <span
+                    class="shrink-0 w-11 h-11 rounded-full bg-white text-brand-dark font-extrabold flex items-center justify-center border border-brand/20"
+                    >01</span
+                  >
+                  <div>
+                    <h3 class="font-bold text-ink">Remplissez le formulaire</h3>
+                    <p class="mt-1 text-sm text-ink-soft leading-relaxed">
+                      Décrivez votre demande et votre situation.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <span
+                    class="shrink-0 w-11 h-11 rounded-full bg-white text-brand-dark font-extrabold flex items-center justify-center border border-brand/20"
+                    >02</span
+                  >
+                  <div>
+                    <h3 class="font-bold text-ink">Envoyez votre demande</h3>
+                    <p class="mt-1 text-sm text-ink-soft leading-relaxed">
+                      Ajoutez si nécessaire une photo de la partie concernée.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <span
+                    class="shrink-0 w-11 h-11 rounded-full bg-white text-brand-dark font-extrabold flex items-center justify-center border border-brand/20"
+                    >03</span
+                  >
+                  <div>
+                    <h3 class="font-bold text-ink">Le médecin vous contacte</h3>
+                    <p class="mt-1 text-sm text-ink-soft leading-relaxed">
+                      Votre demande sera étudiée et le médecin vous indiquera la
+                      suite adaptée.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+
+              <div
+                class="mt-9 flex gap-3 bg-white border border-brand/20 rounded-2xl p-5"
+                role="note"
+              >
+                <i
+                  data-lucide="triangle-alert"
+                  class="w-5 h-5 text-brand-dark shrink-0 mt-0.5"
+                ></i>
+                <p class="text-sm text-ink-soft leading-relaxed">
+                  <strong class="text-ink">Important :</strong> ce formulaire
+                  constitue une demande de consultation. Il ne remplace pas une
+                  consultation médicale urgente. En cas d'urgence, contactez
+                  immédiatement les services d'urgence appropriés.
+                </p>
+              </div>
+            </div>
+
+            <!-- Formulaire -->
+            <div data-reveal class="bg-white rounded-3xl shadow-xl p-6 sm:p-9">
+              <h3 class="text-xl font-bold text-ink">
+                Demander une consultation en ligne
+              </h3>
+
+              <form id="consultation-form" class="mt-6 space-y-5" novalidate>
+                <!-- Nom complet -->
+                <div>
+                  <label
+                    for="field-name"
+                    class="block text-sm font-semibold text-ink mb-1.5"
+                  >
+                    Nom complet
+                  </label>
+                  <input
+                    type="text"
+                    id="field-name"
+                    name="name"
+                    required
+                    placeholder="Votre nom et prénom"
+                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors"
+                  />
+                </div>
+
+                <!-- Téléphone -->
+                <div>
+                  <label
+                    for="field-phone"
+                    class="block text-sm font-semibold text-ink mb-1.5"
+                  >
+                    Téléphone
+                  </label>
+                  <input
+                    type="tel"
+                    id="field-phone"
+                    name="phone"
+                    required
+                    placeholder="+221 XX XXX XX XX"
+                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors"
+                    aria-describedby="phone-error"
+                  />
+                  <p
+                    id="phone-error"
+                    class="hidden mt-1.5 text-xs font-medium text-red-500"
+                  ></p>
+                </div>
+
+                <!-- Adresse -->
+                <div>
+                  <label
+                    for="field-address"
+                    class="block text-sm font-semibold text-ink mb-1.5"
+                  >
+                    Adresse
+                  </label>
+                  <input
+                    type="text"
+                    id="field-address"
+                    name="address"
+                    required
+                    placeholder="Votre adresse ou quartier"
+                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors"
+                  />
+                </div>
+
+                <!-- Type de demande -->
+                <div>
+                  <label
+                    for="field-type"
+                    class="block text-sm font-semibold text-ink mb-1.5"
+                  >
+                    Type de demande / problème
+                  </label>
+                  <select
+                    id="field-type"
+                    name="type"
+                    required
+                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink focus:border-brand outline-none transition-colors bg-white"
+                  >
+                    <option value="">
+                      Sélectionnez le type de consultation
+                    </option>
+                    <option value="generale">Consultation générale</option>
+                    <option value="question">Question de santé</option>
+                    <option value="suivi">Suivi</option>
+                    <option value="prevention">Prévention</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </div>
+
+                <!-- Description -->
+                <div>
+                  <label
+                    for="field-description"
+                    class="block text-sm font-semibold text-ink mb-1.5"
+                  >
+                    Décrivez votre situation
+                  </label>
+                  <textarea
+                    id="field-description"
+                    name="description"
+                    required
+                    rows="4"
+                    placeholder="Expliquez brièvement ce que vous ressentez, depuis quand et les informations importantes."
+                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors resize-none"
+                  ></textarea>
+                </div>
+
+                <!-- Photo -->
+                <div>
+                  <label
+                    for="photo-input"
+                    class="block text-sm font-semibold text-ink mb-1.5"
+                  >
+                    Photo de la partie concernée (facultatif)
+                  </label>
+                  <p class="text-xs text-ink-soft mb-2.5">
+                    Vous pouvez joindre une photo claire de la partie concernée
+                    si cela peut aider à comprendre votre demande.
+                  </p>
+
+                  <label
+                    id="photo-dropzone-label"
+                    for="photo-input"
+                    class="flex items-center gap-3 border-2 border-dashed border-gray-200 hover:border-brand rounded-xl px-4 py-4 cursor-pointer transition-colors"
+                  >
+                    <i
+                      data-lucide="image-up"
+                      class="w-5 h-5 text-brand-dark"
+                    ></i>
+                    <span class="text-sm text-ink-soft"
+                      >Choisir une image…</span
+                    >
+                  </label>
+                  <input
+                    type="file"
+                    id="photo-input"
+                    name="photo"
+                    accept="image/*"
+                    class="sr-only"
+                    aria-describedby="photo-error"
+                  />
+                  <p
+                    id="photo-error"
+                    class="hidden mt-1.5 text-xs font-medium text-red-500"
+                  ></p>
+
+                  <div
+                    id="photo-preview-wrapper"
+                    class="hidden mt-3 relative inline-block"
+                  >
+                    <img
+                      id="photo-preview-image"
+                      src=""
+                      alt="Aperçu de la photo jointe à la demande"
+                      class="w-28 h-28 object-cover rounded-xl border border-gray-200"
+                    />
+                    <button
+                      type="button"
+                      id="photo-remove-btn"
+                      aria-label="Supprimer la photo sélectionnée"
+                      class="absolute -top-2 -right-2 w-7 h-7 bg-white border border-gray-200 rounded-full flex items-center justify-center text-ink-soft hover:text-red-500 hover:border-red-300 transition-colors shadow-sm"
+                    >
+                      <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Consentement -->
+                <div class="flex items-start gap-3 pt-1">
+                  <input
+                    type="checkbox"
+                    id="field-consent"
+                    name="consent"
+                    required
+                    class="mt-1 w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand shrink-0"
+                  />
+                  <label
+                    for="field-consent"
+                    class="text-xs text-ink-soft leading-relaxed"
+                  >
+                    J'accepte que les informations transmises soient utilisées
+                    uniquement dans le cadre du traitement de ma demande de
+                    consultation.
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  id="consultation-submit"
+                  disabled
+                  class="w-full inline-flex items-center justify-center gap-2 bg-brand text-white font-semibold px-6 py-3.5 rounded-full transition-colors opacity-50 cursor-not-allowed hover:enabled:bg-brand-dark"
+                >
+                  Envoyer ma demande
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+
+                <p class="text-xs text-ink-soft leading-relaxed text-center">
+                  Ce formulaire constitue une demande de consultation et ne
+                  remplace pas une consultation médicale. En cas d'urgence
+                  médicale, contactez immédiatement les services d'urgence
+                  appropriés.
+                </p>
+
+                <p class="text-xs text-ink-soft/80 leading-relaxed text-center">
+                  Site statique : aucune donnée n'est transmise ni stockée sur
+                  un serveur. Une solution backend sécurisée sera nécessaire
+                  avant la mise en production.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================
+      FOOTER
+      ========================================================== -->
+    <footer class="bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-14">
+        <div class="grid sm:grid-cols-3 gap-10">
+          <div>
+            <div class="flex items-center gap-2.5">
+              <span
+                class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center"
+              >
+                <i data-lucide="stethoscope" class="w-4.5 h-4.5 text-white"></i>
+              </span>
+              <span class="font-bold text-lg">Médecin Conscient</span>
+            </div>
+            <p class="mt-4 text-sm text-white/70 leading-relaxed max-w-xs">
+              Votre santé mérite une attention qui fait la différence.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-white/90 mb-4">Navigation</h4>
+            <ul class="space-y-2.5 text-sm text-white/70">
+              <li>
+                <a href="index.html" class="hover:text-white transition-colors"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-white/90 mb-4">Informations</h4>
+            <ul class="space-y-2.5 text-sm text-white/70">
+              <li class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i>
+                Dakar, Sénégal
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4 shrink-0"></i>
+                +221 77 115 18 81
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 pt-6 border-t border-white/10 text-xs text-white/60 text-center"
+        >
+          © <span id="current-year">2026</span> Médecin Conscient — Tous droits
+          réservés.
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================================
+       BOUTONS FLOTTANTS
+       ========================================================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <a
+        href="#"
+        data-whatsapp-link
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contacter par WhatsApp"
+        class="btn-float flex items-center gap-2 bg-[#25D366] text-white font-semibold pl-3.5 pr-3.5 sm:pr-5 py-3.5 rounded-full shadow-lg"
+      >
+        <i data-lucide="message-circle" class="w-5 h-5 shrink-0"></i>
+        <span class="hidden sm:inline text-sm">WhatsApp</span>
+      </a>
+      <a
+        href="#"
+        data-call-link
+        aria-label="Appeler le médecin"
+        class="btn-float flex items-center gap-2 bg-brand text-white font-semibold pl-3.5 pr-3.5 sm:pr-5 py-3.5 rounded-full shadow-lg"
+      >
+        <i data-lucide="phone" class="w-5 h-5 shrink-0"></i>
+        <span class="hidden sm:inline text-sm">Appeler</span>
+      </a>
+    </div>
+
+    <!-- ==========================================================
+       MODAL DE CONFIRMATION
+       ========================================================== -->
+    <div
+      id="confirmation-modal"
+      class="hidden fixed inset-0 z-[60] flex items-center justify-center px-5"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div
+        id="modal-overlay"
+        class="absolute inset-0 bg-ink/50"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center"
+      >
+        <span
+          class="mx-auto w-14 h-14 rounded-full bg-brand-light flex items-center justify-center"
+        >
+          <i data-lucide="check" class="w-7 h-7 text-brand-dark"></i>
+        </span>
+        <h3 id="modal-title" class="mt-5 text-lg font-bold text-ink">
+          Demande préparée avec succès
+        </h3>
+        <p class="mt-3 text-sm text-ink-soft leading-relaxed">
+          Votre demande a bien été préparée. Vous pouvez poursuivre l'échange
+          via WhatsApp.
+        </p>
+        <div class="mt-7 flex flex-col gap-3">
+          <a
+            id="modal-whatsapp-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:opacity-90 text-white font-semibold px-8 py-3 rounded-full transition-opacity"
+          >
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            Continuer sur WhatsApp
+          </a>
+          <button
+            id="modal-close-btn"
+            class="inline-flex items-center justify-center text-ink-soft hover:text-ink font-semibold px-8 py-2 transition-colors"
+          >
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
