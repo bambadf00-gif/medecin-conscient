@@ -36,7 +36,6 @@
     </script>
   </head>
   <body class="font-body antialiased bg-cream text-ink">
-    <!-- ============ NAVBAR ============ -->
     <header
       id="siteNav"
       class="fixed top-0 inset-x-0 z-50 transition-colors duration-500">
@@ -47,7 +46,6 @@
           class="font-display font-extrabold tracking-tight text-[4.2vw] xs:text-base sm:text-lg md:text-xl whitespace-nowrap min-w-0 truncate">
           MÉDECIN <span class="text-violet">CONSCIENT</span>
         </a>
-        <!-- Desktop nav -->
         <nav
           class="hidden md:flex items-center gap-10 font-display text-sm font-medium">
           <a href="#apropos" class="nav-link">À propos</a>
@@ -69,17 +67,15 @@
             </svg>
           </a>
         </nav>
-        <!-- Mobile toggle -->
         <button
           id="menuToggle"
           aria-label="Ouvrir le menu"
           aria-expanded="false"
           class="md:hidden shrink-0 font-display font-semibold text-xl w-9 h-9 flex items-center justify-center">
-          <span id="menuIcon">&#9776;</span>
+          <span id="menuIcon">☰</span>
         </button>
       </div>
     </header>
-    <!-- Mobile fullscreen menu -->
     <div
       id="mobileMenu"
       class="fixed inset-0 z-40 bg-ink text-cream flex flex-col justify-between px-8 pt-28 pb-10 md:hidden">
@@ -122,18 +118,15 @@
         >
       </div>
     </div>
-
-    <!-- ============ 01 — HERO ============ -->
     <section
       id="hero"
       class="relative min-h-screen flex flex-col justify-end overflow-hidden pt-24">
       <div
         class="max-w-[1400px] mx-auto w-full px-6 md:px-10 grid md:grid-cols-12 gap-6 md:gap-8 items-end flex-1">
-        <!-- Text block -->
         <div class="md:col-span-6 order-2 md:order-1 pb-10 md:pb-16">
           <p
             class="reveal font-display text-xs md:text-sm font-semibold letter-wide text-violet mb-6">
-            CRÉATEUR &middot; MÉDECIN &middot; MÉDIA
+            CRÉATEUR . MÉDECIN . MÉDIA
           </p>
           <h1
             class="reveal reveal-delay-1 font-display font-extrabold letter-tight uppercase leading-[0.88] text-[clamp(2.75rem,13vw,4.5rem)] md:text-[6.2vw] lg:text-[5.4vw]">
@@ -181,12 +174,11 @@
             </a>
           </div>
         </div>
-        <!-- Portrait -->
         <div class="md:col-span-6 order-1 md:order-2 relative">
           <div
             class="reveal aspect-[4/5] md:aspect-[3/4] w-full md:w-[92%] md:ml-auto md:-mr-6 lg:-mr-10 rounded-t-[2rem] md:rounded-t-[3rem] overflow-hidden img-zoom shadow-[0_40px_80px_-30px_rgba(17,17,17,0.35)]">
             <img
-              src="assets/images/img2.png"
+              src="assets/images/img2.webp"
               alt="Portrait de Médecin Conscient"
               class="w-full h-full object-cover"
               loading="eager" />
@@ -194,8 +186,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 02 — À PROPOS ============ -->
     <section id="apropos" class="py-28 md:py-40 border-t border-ink/10">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10">
         <div class="grid md:grid-cols-12 gap-10 md:gap-16">
@@ -210,7 +200,6 @@
                 >Conscient.</span
               >
             </h2>
-
             <div
               class="flex flex-wrap gap-x-6 gap-y-3 mt-12 font-display text-sm font-semibold letter-wide text-ink/60">
               <span>SANTÉ</span>
@@ -219,7 +208,6 @@
               <span>IMPACT</span>
             </div>
           </div>
-
           <div class="md:col-span-7 grid md:grid-cols-2 gap-10 items-start">
             <div class="reveal reveal-delay-1 md:pt-4">
               <p
@@ -235,11 +223,10 @@
                 sur les réseaux sociaux.
               </p>
             </div>
-
             <div
               class="reveal reveal-delay-2 img-zoom rounded-2xl overflow-hidden aspect-[4/5]">
               <img
-                src="assets/images/img1.png"
+                src="assets/images/img1.webp"
                 alt="Médecin Conscient en tournage"
                 class="w-full h-full object-cover"
                 loading="lazy" />
@@ -248,8 +235,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 03 — CONTENUS ============ -->
     <section id="contenus" class="py-28 md:py-40 bg-mist/40">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10">
         <div
@@ -262,21 +247,17 @@
             Des contenus qui informent, sensibilisent et engagent.
           </p>
         </div>
-
-        <!-- Bento grid — vrai bento asymétrique dès le mobile (pas de grille uniforme) -->
         <div
           class="grid grid-cols-2 md:grid-cols-4 auto-rows-[130px] sm:auto-rows-[160px] md:auto-rows-auto md:grid-rows-2 gap-3 md:gap-4 md:h-[720px]">
-          <!-- Vidéo 1 — hero, grand format en haut sur toute la largeur -->
           <div
             class="reveal content-item col-span-2 row-span-2 md:col-span-1 img-zoom rounded-2xl overflow-hidden relative"
             data-media="video">
-            <!-- Chemin vidéo : remplacer assets/videos/video3.mp4 par le fichier final -->
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/video3.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
@@ -301,18 +282,15 @@
               >
             </span>
           </div>
-
-          <!-- Vidéo 2 — petit format, colonne gauche -->
           <div
             class="reveal reveal-delay-1 content-item col-span-1 row-span-1 img-zoom rounded-2xl overflow-hidden relative"
             data-media="video">
-            <!-- Chemin vidéo : remplacer assets/videos/videos1.mp4 par le fichier final -->
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/video3m.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
@@ -337,17 +315,15 @@
               >
             </span>
           </div>
-          <!-- Vidéo 3 — format haut, colonne droite (span 2 lignes) -->
           <div
             class="reveal reveal-delay-2 content-item col-span-1 row-span-2 img-zoom rounded-2xl overflow-hidden relative"
             data-media="video">
-            <!-- Chemin vidéo : remplacer assets/videos/videos1.mp4 par le fichier final -->
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/video38m.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
@@ -372,18 +348,15 @@
               >
             </span>
           </div>
-
-          <!-- Vidéo 4 — petit format, colonne gauche -->
           <div
             class="reveal reveal-delay-1 content-item col-span-1 row-span-1 img-zoom rounded-2xl overflow-hidden relative"
             data-media="video">
-            <!-- Chemin vidéo : remplacer assets/videos/video2.mp4 par le fichier final -->
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/video26.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
@@ -408,18 +381,15 @@
               >
             </span>
           </div>
-
-          <!-- Vidéo 5 — bandeau large en bas, pleine largeur -->
           <div
             class="reveal reveal-delay-3 content-item col-span-2 row-span-1 img-zoom rounded-2xl overflow-hidden relative"
             data-media="video">
-            <!-- Chemin vidéo : remplacer assets/videos/videos1.mp4 par le fichier final -->
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/video4m.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
@@ -447,8 +417,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Lightbox (images uniquement) -->
     <div
       id="lightbox"
       class="fixed inset-0 z-[60] hidden bg-ink/90 items-center justify-center px-6">
@@ -456,7 +424,7 @@
         id="lightboxClose"
         aria-label="Fermer"
         class="absolute top-6 right-6 md:top-10 md:right-10 text-cream text-3xl font-display">
-        &times;
+        x
       </button>
       <div class="max-w-3xl w-full">
         <img
@@ -466,19 +434,16 @@
           class="w-full max-h-[85vh] object-contain rounded-xl hidden" />
       </div>
     </div>
-
-    <!-- ============ 04 — AUDIENCE ============ -->
     <section id="audience" class="py-28 md:py-40 bg-ink text-cream">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10">
         <h2
           class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight mb-10 md:mb-14">
           Une communauté<br />qui regarde.
         </h2>
-
         <div class="reveal reveal-delay-1 mb-16 md:mb-24">
           <p
             class="font-display text-xs md:text-sm letter-wide text-cream/40 mb-3">
-            CUMUL TOTAL &mdash; TOUS RÉSEAUX
+            CUMUL TOTAL — TOUS RÉSEAUX
           </p>
           <p
             class="font-display font-extrabold text-6xl md:text-8xl text-violet leading-none num-counter"
@@ -487,7 +452,6 @@
             0
           </p>
         </div>
-
         <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
           <a
             href="https://www.tiktok.com/@medecin_conscient?_r=1&_t=ZS-99cRrbFBkq0"
@@ -508,7 +472,7 @@
               </span>
               <span
                 class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
-                >SUIVRE &rarr;</span
+                >SUIVRE ➔</span
               >
             </div>
             <div>
@@ -524,7 +488,6 @@
               </p>
             </div>
           </a>
-
           <a
             href="https://www.instagram.com/medecinconscient?stkn=MTh5ejA1ZHozZmxjcw=="
             target="_blank"
@@ -547,7 +510,7 @@
               </span>
               <span
                 class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
-                >SUIVRE &rarr;</span
+                >SUIVRE ➔</span
               >
             </div>
             <div>
@@ -563,7 +526,6 @@
               </p>
             </div>
           </a>
-
           <a
             href="https://www.facebook.com/share/18tf2bpnhR/?mibextid=wwXIfr"
             target="_blank"
@@ -583,7 +545,7 @@
               </span>
               <span
                 class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
-                >SUIVRE &rarr;</span
+                >SUIVRE ➔</span
               >
             </div>
             <div>
@@ -599,7 +561,6 @@
               </p>
             </div>
           </a>
-
           <a
             href="https://www.threads.com/@medecinconscient"
             target="_blank"
@@ -621,7 +582,7 @@
               </span>
               <span
                 class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
-                >SUIVRE &rarr;</span
+                >SUIVRE ➔</span
               >
             </div>
             <div>
@@ -638,13 +599,12 @@
             </div>
           </a>
         </div>
-
         <div
           class="reveal mt-3 md:mt-6 border border-cream/15 rounded-3xl p-6 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-6">
           <div>
             <p
               class="font-display font-extrabold text-3xl md:text-5xl leading-none">
-              500K &ndash; 3M+
+              500K — 3M+
             </p>
             <p
               class="mt-3 font-display text-xs md:text-sm letter-wide text-cream/50">
@@ -658,8 +618,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 05 — MARQUES ============ -->
     <section id="marques" class="py-28 md:py-32 border-b border-ink/10">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10 mb-14 md:mb-16">
         <h2
@@ -672,64 +630,60 @@
           utile, humain et mémorable.
         </p>
       </div>
-
       <div
         class="marquee-wrap overflow-hidden border-y border-ink/10 py-8 md:py-10">
         <div
           class="marquee-track font-display font-extrabold uppercase text-4xl md:text-6xl letter-tight text-ink/90">
           <span class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16">
-            <span>NIDO</span><span class="text-violet">&bull;</span>
-            <span>LEMFI TRANSFERT</span><span class="text-violet">&bull;</span>
+            <span>NIDO</span><span class="text-violet">•</span>
+            <span>LEMFI TRANSFERT</span><span class="text-violet">•</span>
             <span>BETADINE IODE 10%</span
-            ><span class="text-violet">&bull;</span>
+            ><span class="text-violet">•</span>
             <span>BIOKYA COSMÉTIQUE</span
-            ><span class="text-violet">&bull;</span> <span>YAFA BEAUTY</span
-            ><span class="text-violet">&bull;</span> <span>KKBCEREAL</span
-            ><span class="text-violet">&bull;</span>
+            ><span class="text-violet">•</span> <span>YAFA BEAUTY</span
+            ><span class="text-violet">•</span> <span>KKBCEREAL</span
+            ><span class="text-violet">•</span>
           </span>
           <span
             class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16"
             aria-hidden="true">
-            <span>NIDO</span><span class="text-violet">&bull;</span>
-            <span>LEMFI TRANSFERT</span><span class="text-violet">&bull;</span>
+            <span>NIDO</span><span class="text-violet">•</span>
+            <span>LEMFI TRANSFERT</span><span class="text-violet">•</span>
             <span>BETADINE IODE 10%</span
-            ><span class="text-violet">&bull;</span>
+            ><span class="text-violet">•</span>
             <span>BIOKYA COSMÉTIQUE</span
-            ><span class="text-violet">&bull;</span> <span>YAFA BEAUTY</span
-            ><span class="text-violet">&bull;</span> <span>KKBCEREAL</span
-            ><span class="text-violet">&bull;</span>
+            ><span class="text-violet">•</span> <span>YAFA BEAUTY</span
+            ><span class="text-violet">•</span> <span>KKBCEREAL</span
+            ><span class="text-violet">•</span>
           </span>
         </div>
       </div>
-
       <div class="marquee-wrap overflow-hidden py-8 md:py-10">
         <div
           class="marquee-track-rev font-display font-semibold uppercase text-2xl md:text-4xl letter-tight text-ink/40">
           <span class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16">
-            <span>YAFA BEAUTY</span><span>&bull;</span> <span>KKBCEREAL</span
-            ><span>&bull;</span> <span>NIDO</span><span>&bull;</span>
-            <span>BIOKYA COSMÉTIQUE</span><span>&bull;</span>
-            <span>BETADINE IODE 10%</span><span>&bull;</span>
-            <span>LEMFI TRANSFERT</span><span>&bull;</span>
+            <span>YAFA BEAUTY</span><span>•</span> <span>KKBCEREAL</span
+            ><span>•</span> <span>NIDO</span><span>•</span>
+            <span>BIOKYA COSMÉTIQUE</span><span>•</span>
+            <span>BETADINE IODE 10%</span><span>•</span>
+            <span>LEMFI TRANSFERT</span><span>•</span>
           </span>
           <span
             class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16"
             aria-hidden="true">
-            <span>YAFA BEAUTY</span><span>&bull;</span> <span>KKBCEREAL</span
-            ><span>&bull;</span> <span>NIDO</span><span>&bull;</span>
-            <span>BIOKYA COSMÉTIQUE</span><span>&bull;</span>
-            <span>BETADINE IODE 10%</span><span>&bull;</span>
-            <span>LEMFI TRANSFERT</span><span>&bull;</span>
+            <span>YAFA BEAUTY</span><span>•</span> <span>KKBCEREAL</span
+            ><span>•</span> <span>NIDO</span><span>•</span>
+            <span>BIOKYA COSMÉTIQUE</span><span>•</span>
+            <span>BETADINE IODE 10%</span><span>•</span>
+            <span>LEMFI TRANSFERT</span><span>•</span>
           </span>
         </div>
       </div>
     </section>
-
     <section
       id="collaborations"
       class="relative py-28 md:py-40 overflow-hidden">
       <div class="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
-        <!-- HEADER -->
         <div class="mb-20 md:mb-28">
           <div class="flex items-center gap-4 mb-7">
             <span class="w-10 h-px bg-ink"></span>
@@ -738,14 +692,12 @@
               06 — Collaborations
             </span>
           </div>
-
           <div class="grid md:grid-cols-12 gap-8 items-end">
             <h2
               class="reveal md:col-span-9 font-display font-extrabold uppercase leading-[0.88] text-5xl sm:text-6xl md:text-8xl tracking-[-0.055em]">
               Des collaborations<br />
               <span class="text-ink/35">qui ont du sens.</span>
             </h2>
-
             <p
               class="reveal md:col-span-3 text-sm md:text-base text-ink/50 leading-relaxed md:pb-2">
               Des marques, des univers et des projets transformés en contenus
@@ -753,33 +705,24 @@
             </p>
           </div>
         </div>
-        <!-- COLLABORATIONS -->
         <div class="space-y-0">
-          <!-- 01 — NIDO -->
           <article
             class="reveal group relative py-10 md:py-16 border-t border-ink/10">
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-              <!-- IMAGE -->
               <div class="md:col-span-8 order-1 relative">
                 <div
                   class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
                   <img
-                    src="assets/images/nido.png"
+                    src="assets/images/nido.webp"
                     alt="Collaboration NIDO"
                     loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
-
-                  <!-- Overlay -->
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
-
-                  <!-- Numéro -->
                   <span
                     class="absolute top-5 left-5 md:top-7 md:left-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
                     01
                   </span>
-
-                  <!-- Marque -->
                   <div class="absolute bottom-5 left-5 md:bottom-7 md:left-7">
                     <div
                       class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
@@ -793,28 +736,23 @@
               </div>
             </div>
           </article>
-          <!-- 02 — LEMFI -->
           <article
             class="reveal group relative py-10 md:py-16 border-t border-ink/10">
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-              <!-- IMAGE -->
               <div class="md:col-span-8 order-1 md:order-2 relative">
                 <div
                   class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
                   <img
-                    src="assets/images/lemfi.png"
+                    src="assets/images/lemfi.webp"
                     alt="Collaboration LemFi Transfert"
                     loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
-
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
-
                   <span
                     class="absolute top-5 right-5 md:top-7 md:right-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
                     02
                   </span>
-
                   <div class="absolute bottom-5 right-5 md:bottom-7 md:right-7">
                     <div
                       class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
@@ -828,8 +766,6 @@
               </div>
             </div>
           </article>
-
-          <!-- 03 — BETADINE -->
           <article
             class="reveal group relative py-10 md:py-16 border-t border-ink/10">
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -837,19 +773,16 @@
                 <div
                   class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
                   <img
-                    src="assets/images/beta.png"
+                    src="assets/images/beta.webp"
                     alt="Collaboration Betadine"
                     loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
-
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
-
                   <span
                     class="absolute top-5 left-5 md:top-7 md:left-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
                     03
                   </span>
-
                   <div class="absolute bottom-5 left-5 md:bottom-7 md:left-7">
                     <div
                       class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
@@ -863,8 +796,6 @@
               </div>
             </div>
           </article>
-
-          <!-- 04 — BIOKYA -->
           <article
             class="reveal group relative py-10 md:py-16 border-t border-ink/10">
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -872,19 +803,16 @@
                 <div
                   class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
                   <img
-                    src="assets/images/biokya.png"
+                    src="assets/images/biokya.webp"
                     alt="Collaboration Biokya Cosmétique"
                     loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
-
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
-
                   <span
                     class="absolute top-5 right-5 md:top-7 md:right-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
                     04
                   </span>
-
                   <div class="absolute bottom-5 right-5 md:bottom-7 md:right-7">
                     <div
                       class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
@@ -898,8 +826,6 @@
               </div>
             </div>
           </article>
-
-          <!-- 05 — YAFA BEAUTY -->
           <article
             class="reveal group relative py-10 md:py-16 border-t border-ink/10">
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -907,19 +833,16 @@
                 <div
                   class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
                   <img
-                    src="assets/images/yafa.png"
+                    src="assets/images/yafa.webp"
                     alt="Collaboration Yafa Beauty"
                     loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
-
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
-
                   <span
                     class="absolute top-5 left-5 md:top-7 md:left-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
                     05
                   </span>
-
                   <div class="absolute bottom-5 left-5 md:bottom-7 md:left-7">
                     <div
                       class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
@@ -933,7 +856,6 @@
               </div>
             </div>
           </article>
-          <!-- 06 — KKB -->
           <article
             class="reveal group relative py-10 md:py-16 border-t border-b border-ink/10">
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -941,19 +863,16 @@
                 <div
                   class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
                   <img
-                    src="assets/images/kkb.png"
+                    src="assets/images/kkb.webp"
                     alt="Collaboration KKB Céréal"
                     loading="lazy"
                     class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
-
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
-
                   <span
                     class="absolute top-5 right-5 md:top-7 md:right-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
                     06
                   </span>
-
                   <div class="absolute bottom-5 right-5 md:bottom-7 md:right-7">
                     <div
                       class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
@@ -970,15 +889,12 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 07 — TÉMOIGNAGES ============ -->
     <section id="temoignages" class="py-28 md:py-40 bg-cream">
       <div class="max-w-[1000px] mx-auto px-6 md:px-10 text-center">
         <h2
           class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight mb-16 md:mb-20">
           Ils en parlent.
         </h2>
-
         <div class="relative">
           <div id="testimonialTrack" class="overflow-hidden">
             <div
@@ -987,72 +903,66 @@
               style="transition-timing-function: var(--ease)">
               <div class="w-full shrink-0 px-2 md:px-10">
                 <p class="font-serif italic text-2xl md:text-4xl leading-snug">
-                  &ldquo;Une collaboration fluide et un contenu qui a vraiment
+                  "Une collaboration fluide et un contenu qui a vraiment
                   parlé à notre communauté. Le message est passé avec beaucoup
-                  plus d'impact qu'une campagne classique.&rdquo;
+                  plus d'impact qu'une campagne classique."
                 </p>
                 <p class="mt-8 font-display font-semibold">
-                  [Responsable Communication] &mdash; NIDO
+                  [Responsable Communication] — NIDO
                 </p>
               </div>
-
               <div class="w-full shrink-0 px-2 md:px-10">
                 <p class="font-serif italic text-2xl md:text-4xl leading-snug">
-                  &ldquo;Un vrai sens du rythme et du format court. La campagne
+                  "Un vrai sens du rythme et du format court. La campagne
                   a généré bien plus d'engagement que ce qu'on attendait, avec
-                  une audience très qualifiée.&rdquo;
+                  une audience très qualifiée."
                 </p>
                 <p class="mt-8 font-display font-semibold">
-                  [Directeur Marketing] &mdash; LemFi Transfert
+                  [Directeur Marketing] — LemFi Transfert
                 </p>
               </div>
-
               <div class="w-full shrink-0 px-2 md:px-10">
                 <p class="font-serif italic text-2xl md:text-4xl leading-snug">
-                  &ldquo;La légitimité d'un professionnel de santé qui explique
+                  "La légitimité d'un professionnel de santé qui explique
                   simplement, sans jargon : c'est exactement ce qu'il fallait
-                  pour parler prévention à grande échelle.&rdquo;
+                  pour parler prévention à grande échelle."
                 </p>
                 <p class="mt-8 font-display font-semibold">
-                  [Chef de Produit] &mdash; Betadine Iode 10%
+                  [Chef de Produit] — Betadine Iode 10%
                 </p>
               </div>
-
               <div class="w-full shrink-0 px-2 md:px-10">
                 <p class="font-serif italic text-2xl md:text-4xl leading-snug">
-                  &ldquo;Un contenu soigné, livré dans les temps, et surtout une
+                  "Un contenu soigné, livré dans les temps, et surtout une
                   vraie compréhension de notre marque. On retravaillera avec lui
-                  sans hésiter.&rdquo;
+                  sans hésiter."
                 </p>
                 <p class="mt-8 font-display font-semibold">
-                  [Responsable Partenariats] &mdash; Biokya Cosmétique
+                  [Responsable Partenariats] — Biokya Cosmétique
                 </p>
               </div>
-
               <div class="w-full shrink-0 px-2 md:px-10">
                 <p class="font-serif italic text-2xl md:text-4xl leading-snug">
-                  &ldquo;Une esthétique impeccable et un ton juste. Les retours
+                  "Une esthétique impeccable et un ton juste. Les retours
                   de notre communauté ont été unanimement positifs après la
-                  sortie du contenu.&rdquo;
+                  sortie du contenu."
                 </p>
                 <p class="mt-8 font-display font-semibold">
-                  [Responsable Communication] &mdash; Yafa Beauty
+                  [Responsable Communication] — Yafa Beauty
                 </p>
               </div>
-
               <div class="w-full shrink-0 px-2 md:px-10">
                 <p class="font-serif italic text-2xl md:text-4xl leading-snug">
-                  &ldquo;Professionnalisme du brief jusqu'à la livraison, et des
+                  "Professionnalisme du brief jusqu'à la livraison, et des
                   résultats mesurables sur la notoriété de la marque. Une
-                  collaboration très satisfaisante.&rdquo;
+                  collaboration très satisfaisante."
                 </p>
                 <p class="mt-8 font-display font-semibold">
-                  [Responsable de Marque] &mdash; KKB Céréal
+                  [Responsable de Marque] — KKB Céréal
                 </p>
               </div>
             </div>
           </div>
-
           <div class="flex items-center justify-center gap-6 mt-14">
             <button
               id="testiPrev"
@@ -1089,8 +999,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 08 — PHOTOGRAPHIES ============ -->
     <section id="photos" class="py-28 md:py-40 border-t border-ink/10">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10">
         <h2
@@ -1101,13 +1009,12 @@
           class="grid grid-cols-2 md:grid-cols-6 auto-rows-[140px] md:auto-rows-[150px] gap-3 md:gap-5">
           <div
             class="reveal col-span-1 row-span-2 md:col-span-2 md:row-span-2 img-zoom rounded-[1.75rem] overflow-hidden relative">
-            <!-- Chemin vidéo : remplacer assets/videos/videos2.mp4 par le fichier final -->
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/videonido.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
@@ -1116,25 +1023,22 @@
               Coulisses
             </span>
           </div>
-
-          <!-- Tuile haute droite -->
           <div
             class="reveal reveal-delay-1 col-span-1 row-span-1 md:col-span-2 md:row-span-1 img-zoom rounded-2xl overflow-hidden relative">
-            <!-- Chemin vidéo : remplacer assets/videos/videos4.mp4 par le fichier final -->
-            <img src="assets/images/img1.png" alt="" />
+            <img src="assets/images/img5.webp" alt="" />
           </div>
           <div
             class="reveal reveal-delay-1 col-span-1 row-span-1 md:col-span-2 md:row-span-1 img-zoom rounded-2xl overflow-hidden relative">
-            <img src="assets/images/img4.png" alt="" />
+            <img src="assets/images/img4.webp" alt="" />
           </div>
           <div
             class="reveal reveal-delay-3 col-span-2 row-span-2 md:col-span-6 md:row-span-2 img-zoom rounded-[1.75rem] overflow-hidden relative">
             <video
               class="auto-video w-full h-full object-cover"
               src="assets/videos/videobeta.mp4"
-              autoplay
               muted
               lopp
+              playsinline
               preload="metadata"></video>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
@@ -1142,8 +1046,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 09 — POURQUOI COLLABORER ============ -->
     <section class="py-28 md:py-40 bg-violet-light/50">
       <div class="max-w-[1400px] mx-auto px-6 md:px-10">
         <h2
@@ -1170,8 +1072,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ 10 — COLLABORONS (FORM) ============ -->
     <section id="collaborer" class="py-28 md:py-40 bg-ink text-cream">
       <div class="max-w-[1100px] mx-auto px-6 md:px-10">
         <h2
@@ -1182,7 +1082,6 @@
           class="reveal reveal-delay-1 mt-6 text-cream/50 font-display text-base md:text-lg">
           Parlons de votre prochaine campagne.
         </p>
-
         <a
           id="topEmailLink"
           href="#"
@@ -1208,12 +1107,10 @@
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
-
         <form
           id="collabForm"
           class="reveal reveal-delay-2 grid md:grid-cols-2 gap-x-10 gap-y-8"
           novalidate>
-          <!-- Honeypot -->
           <div class="hidden">
             <label for="website">Ne pas remplir</label>
             <input
@@ -1223,7 +1120,6 @@
               tabindex="-1"
               autocomplete="off" />
           </div>
-
           <div class="field-line px-5 py-4">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1237,7 +1133,6 @@
               placeholder="Votre nom complet" />
             <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
           </div>
-
           <div class="field-line px-5 py-4">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1251,7 +1146,6 @@
               placeholder="Nom de la marque" />
             <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
           </div>
-
           <div class="field-line px-5 py-4">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1265,7 +1159,6 @@
               placeholder="nom@marque.com" />
             <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
           </div>
-
           <div class="field-line px-5 py-4">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1277,7 +1170,6 @@
               class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
               placeholder="+221 ..." />
           </div>
-
           <div class="field-line px-5 py-4 relative">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1316,7 +1208,6 @@
             </svg>
             <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
           </div>
-
           <div class="field-line px-5 py-4 relative">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1326,7 +1217,7 @@
               name="budget"
               class="w-full bg-transparent outline-none text-cream text-lg font-medium appearance-none pr-8 cursor-pointer">
               <option value="a-definir" class="text-ink">À définir</option>
-              <option value="lt-500k" class="text-ink">&lt; 500K FCFA</option>
+              <option value="lt-500k" class="text-ink">< 500K FCFA</option>
               <option value="500k-1m" class="text-ink">500K – 1M FCFA</option>
               <option value="1m-2.5m" class="text-ink">1M – 2.5M FCFA</option>
               <option value="2.5m-plus" class="text-ink">2.5M+</option>
@@ -1343,7 +1234,6 @@
               <path d="M6 9l6 6 6-6" />
             </svg>
           </div>
-
           <div class="field-line px-5 py-4">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1355,7 +1245,6 @@
               class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
               placeholder="Ex : Octobre 2026" />
           </div>
-
           <div class="field-line px-5 py-4">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1368,7 +1257,6 @@
               placeholder="https://..." />
             <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
           </div>
-
           <div class="field-line px-5 py-4 md:col-span-2">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1380,7 +1268,6 @@
               class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
               placeholder="TikTok, Instagram, recommandation..." />
           </div>
-
           <div class="field-line px-5 py-4 md:col-span-2">
             <label
               class="block font-display text-xs letter-wide text-cream/40 mb-2"
@@ -1394,7 +1281,6 @@
               placeholder="Décrivez votre projet..."></textarea>
             <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
           </div>
-
           <div class="md:col-span-2 mt-6">
             <button
               type="submit"
@@ -1425,8 +1311,6 @@
             </p>
           </div>
         </form>
-
-        <!-- ============ CONTACT DIRECT ============ -->
         <div
           class="reveal mt-16 md:mt-20 border border-cream/15 rounded-3xl p-8 md:p-12 text-center">
           <p
@@ -1454,8 +1338,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ============ FOOTER ============ -->
     <footer class="py-16 border-t border-ink/10">
       <div
         class="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
@@ -1465,7 +1347,6 @@
           </p>
           <p class="text-ink/50 text-sm mt-1">Santé. Éducation. Impact.</p>
         </div>
-
         <div
           class="flex flex-wrap gap-x-8 gap-y-2 font-display text-sm font-medium">
           <a
@@ -1506,11 +1387,9 @@
       </div>
       <p
         class="max-w-[1400px] mx-auto px-6 md:px-10 mt-10 text-ink/30 text-xs font-display">
-        &copy; 2026 Médecin Conscient
+        © 2026 Médecin Conscient
       </p>
     </footer>
-
-    <!-- ============ BACK TO TOP ============ -->
     <button
       id="backToTop"
       aria-label="Remonter en haut de page"
@@ -1525,7 +1404,6 @@
         <path d="M12 19V5M6 11l6-6 6 6" />
       </svg>
     </button>
-
     <script src="js/script.js"></script>
   </body>
 </html>
