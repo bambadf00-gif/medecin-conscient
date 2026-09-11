@@ -1,0 +1,281 @@
+/* ==========================================================================
+   Médecin Conscient — style.css
+   Styles personnalisés qui complètent Tailwind (chargé en CDN dans le HTML).
+   ========================================================================== */
+
+:root {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #7657d9;
+  color: #ffffff;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+a,
+label,
+button {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #7657d9;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Fallback for the "xs:" breakpoint used in the nav logo ---------- */
+/* Tailwind's CDN build only knows the default screens, so we cover "xs" (400px) here. */
+@media (min-width: 400px) {
+  .xs\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* ---------- Typography helpers ---------- */
+.letter-tight {
+  letter-spacing: -0.02em;
+}
+
+.letter-wide {
+  letter-spacing: 0.12em;
+}
+
+/* ---------- Navbar ---------- */
+#siteNav {
+  background-color: transparent;
+}
+
+#siteNav.scrolled {
+  background-color: rgba(247, 246, 242, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(17, 17, 17, 0.06);
+}
+
+.nav-link {
+  position: relative;
+  color: #111111;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: #7657d9;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Mobile fullscreen menu ---------- */
+#mobileMenu {
+  transform: translateY(-100%);
+  transition: transform 0.5s var(--ease);
+}
+
+#mobileMenu.open {
+  transform: translateY(0);
+}
+
+.mobile-link {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-link:hover {
+  color: #7657d9;
+}
+
+/* ---------- Buttons with arrow ---------- */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-arrow svg:last-child {
+  transition: transform 0.3s var(--ease);
+}
+
+.btn-arrow:hover svg:last-child {
+  transform: translateX(4px);
+}
+
+/* ---------- Image / video zoom on hover ---------- */
+.img-zoom {
+  position: relative;
+}
+
+.img-zoom img,
+.img-zoom video {
+  transition: transform 1.1s var(--ease);
+}
+
+.img-zoom:hover img,
+.img-zoom:hover video {
+  transform: scale(1.05);
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal.in-view,
+.reveal-delay-1.in-view,
+.reveal-delay-2.in-view,
+.reveal-delay-3.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Form fields ---------- */
+.field-line {
+  border-bottom: 1px solid rgba(247, 246, 242, 0.15);
+  transition: border-color 0.3s ease;
+}
+
+.field-line:focus-within {
+  border-color: #7657d9;
+}
+
+.field-line.field-invalid {
+  border-color: #f87171;
+}
+
+.field-error-msg {
+  min-height: 1em;
+}
+
+/* Style native <select> options with a dark ink color so they read fine
+   on both light and dark browser dropdown themes. */
+.field-line select option {
+  color: #111111;
+}
+
+/* ---------- Marquee (brands wall) ---------- */
+.marquee-wrap {
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 32s linear infinite;
+}
+
+.marquee-track-rev {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 38s linear infinite;
+}
+
+.marquee-wrap:hover .marquee-track,
+.marquee-wrap:hover .marquee-track-rev {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ---------- Lightbox ---------- */
+#lightbox.flex {
+  display: flex;
+}
+
+/* ---------- Back to top ---------- */
+#backToTop.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ---------- Testimonial slider ---------- */
+#testimonialInner {
+  transition: transform 0.7s var(--ease);
+}

@@ -1,407 +1,339 @@
 /* ==========================================================================
    Médecin Conscient — script.js
-   JavaScript Vanilla — aucune dépendance externe.
+   Menu mobile, scroll reveal, compteurs animés, marquee, lightbox,
+   slider de témoignages, bouton retour en haut, formulaire de collaboration.
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   CONFIGURATION — à modifier facilement
-   -------------------------------------------------------------------------- */
-const WHATSAPP_NUMBER = "221771151881"; // format international sans "+" ni espaces
-const PHONE_NUMBER = "+221771151881";   // format d'affichage / lien tel:
+(function () {
+  "use strict";
 
-/* --------------------------------------------------------------------------
-   Initialisation au chargement du DOM
-   -------------------------------------------------------------------------- */
-document.addEventListener("DOMContentLoaded", () => {
-  initFloatingButtons();
-  initMobileMenu();
-  initSmoothScroll();
-  initScrollReveal();
-  initFooterYear();
-  initHeaderShadowOnScroll();
+  /* ============ CONFIG — à remplacer par les vraies coordonnées ============ */
+  var contactEmail = "contact@medecinconscient.com";
 
-  // Ces fonctions n'agissent que si les éléments concernés existent sur la page
-  initPhotoUpload();
-  initConsultationForm();
-  initModal();
-});
-
-/* --------------------------------------------------------------------------
-   1. Boutons flottants (WhatsApp + Appel)
-   -------------------------------------------------------------------------- */
-function initFloatingButtons() {
-  const whatsappLinks = document.querySelectorAll("[data-whatsapp-link]");
-  const callLinks = document.querySelectorAll("[data-call-link]");
-
-  whatsappLinks.forEach((link) => {
-    link.href = `https://wa.me/${WHATSAPP_NUMBER}`;
+  /* ============ Liens email (topbar / contact direct / footer) ============ */
+  ["topEmailLink", "directEmailLink", "footerEmailLink"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.href = "mailto:" + contactEmail;
   });
 
-  callLinks.forEach((link) => {
-    link.href = `tel:${PHONE_NUMBER}`;
-  });
-}
+  /* ============ Navbar : fond au scroll ============ */
+  var siteNav = document.getElementById("siteNav");
+  function updateNavBackground() {
+    if (!siteNav) return;
+    if (window.scrollY > 40) siteNav.classList.add("scrolled");
+    else siteNav.classList.remove("scrolled");
+  }
+  updateNavBackground();
+  window.addEventListener("scroll", updateNavBackground, { passive: true });
 
-/* --------------------------------------------------------------------------
-   2. Menu mobile
-   -------------------------------------------------------------------------- */
-function initMobileMenu() {
-  const toggleBtn = document.getElementById("mobile-menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const iconOpen = document.getElementById("icon-menu-open");
-  const iconClose = document.getElementById("icon-menu-close");
+  /* ============ Menu mobile plein écran ============ */
+  var menuToggle = document.getElementById("menuToggle");
+  var menuIcon = document.getElementById("menuIcon");
+  var mobileMenu = document.getElementById("mobileMenu");
 
-  if (!toggleBtn || !mobileMenu) return;
-
-  const closeMenu = () => {
-    mobileMenu.classList.add("max-h-0", "opacity-0");
-    mobileMenu.classList.remove("max-h-96", "opacity-100");
-    toggleBtn.setAttribute("aria-expanded", "false");
-    if (iconOpen && iconClose) {
-      iconOpen.classList.remove("hidden");
-      iconClose.classList.add("hidden");
-    }
-  };
-
-  const openMenu = () => {
-    mobileMenu.classList.remove("max-h-0", "opacity-0");
-    mobileMenu.classList.add("max-h-96", "opacity-100");
-    toggleBtn.setAttribute("aria-expanded", "true");
-    if (iconOpen && iconClose) {
-      iconOpen.classList.add("hidden");
-      iconClose.classList.remove("hidden");
-    }
-  };
-
-  toggleBtn.addEventListener("click", () => {
-    const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
-    isOpen ? closeMenu() : openMenu();
-  });
-
-  // Ferme le menu mobile automatiquement au clic sur un lien
-  mobileMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-}
-
-/* --------------------------------------------------------------------------
-   3. Défilement fluide (smooth scroll) vers les ancres
-   -------------------------------------------------------------------------- */
-function initSmoothScroll() {
-  document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-      const hashIndex = href.indexOf("#");
-      if (hashIndex === -1) return;
-
-      const targetId = href.substring(hashIndex + 1);
-      if (!targetId) return;
-
-      const isSamePage =
-        href.startsWith("#") ||
-        href.startsWith(window.location.pathname.split("/").pop() + "#") ||
-        href.startsWith("./" + window.location.pathname.split("/").pop() + "#");
-
-      const targetEl = document.getElementById(targetId);
-
-      if (isSamePage && targetEl) {
-        e.preventDefault();
-        const headerOffset = 80;
-        const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   4. Apparition des sections au scroll
-   -------------------------------------------------------------------------- */
-function initScrollReveal() {
-  const revealElements = document.querySelectorAll("[data-reveal]");
-  if (!revealElements.length) return;
-
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (prefersReducedMotion) {
-    revealElements.forEach((el) => el.classList.add("is-visible"));
-    return;
+  function openMobileMenu() {
+    mobileMenu.classList.add("open");
+    menuToggle.setAttribute("aria-expanded", "true");
+    if (menuIcon) menuIcon.innerHTML = "&times;";
+    document.body.style.overflow = "hidden";
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+  function closeMobileMenu() {
+    mobileMenu.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    if (menuIcon) menuIcon.innerHTML = "&#9776;";
+    document.body.style.overflow = "";
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      if (mobileMenu.classList.contains("open")) closeMobileMenu();
+      else openMobileMenu();
+    });
+
+    mobileMenu.querySelectorAll(".mobile-link").forEach(function (link) {
+      link.addEventListener("click", closeMobileMenu);
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && mobileMenu && mobileMenu.classList.contains("open")) {
+      closeMobileMenu();
+    }
+  });
+
+  /* ============ Scroll reveal ============ */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add("in-view");
+    });
+  }
+
+  /* ============ Compteurs animés (statistiques audience) ============ */
+  var counters = document.querySelectorAll(".num-counter");
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.count || "0");
+    var suffix = el.dataset.suffix || "";
+    var isDecimal = target % 1 !== 0;
+    var duration = 1400;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = target * eased;
+      el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ("IntersectionObserver" in window && counters.length) {
+    var counterObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    counters.forEach(function (el) {
+      counterObserver.observe(el);
+    });
+  } else {
+    counters.forEach(animateCounter);
+  }
+
+  /* ============ Lightbox (contenus : images + vidéos) ============ */
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightboxImg");
+  var lightboxVideo = document.getElementById("lightboxVideo");
+  var lightboxClose = document.getElementById("lightboxClose");
+  var contentItems = document.querySelectorAll(".content-item");
+
+  function openLightbox(type, src, poster) {
+    if (!lightbox) return;
+    lightboxImg.classList.add("hidden");
+    lightboxVideo.classList.add("hidden");
+    lightboxVideo.pause();
+
+    if (type === "video") {
+      lightboxVideo.src = src;
+      if (poster) lightboxVideo.poster = poster;
+      lightboxVideo.classList.remove("hidden");
+      lightboxVideo.play().catch(function () {});
+    } else {
+      lightboxImg.src = src;
+      lightboxImg.classList.remove("hidden");
+    }
+
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    lightboxVideo.pause();
+    lightboxVideo.removeAttribute("src");
+    lightboxVideo.load();
+    document.body.style.overflow = "";
+  }
+
+  contentItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var type = item.dataset.media;
+      var src = item.dataset.src;
+      var poster = item.dataset.poster;
+      openLightbox(type, src, poster);
+    });
+  });
+
+  if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+  if (lightbox) {
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && lightbox && !lightbox.classList.contains("hidden")) {
+      closeLightbox();
+    }
+  });
+
+  /* ============ Slider de témoignages ============ */
+  var testimonialInner = document.getElementById("testimonialInner");
+  var testiPrev = document.getElementById("testiPrev");
+  var testiNext = document.getElementById("testiNext");
+  var testiIndexEl = document.getElementById("testiIndex");
+
+  if (testimonialInner) {
+    var slides = testimonialInner.children;
+    var total = slides.length;
+    var current = 0;
+
+    function pad(n) {
+      return n < 10 ? "0" + n : "" + n;
+    }
+
+    function updateSlider() {
+      testimonialInner.style.transform = "translateX(-" + current * 100 + "%)";
+      if (testiIndexEl) testiIndexEl.textContent = pad(current + 1);
+    }
+
+    if (testiPrev) {
+      testiPrev.addEventListener("click", function () {
+        current = (current - 1 + total) % total;
+        updateSlider();
+      });
+    }
+    if (testiNext) {
+      testiNext.addEventListener("click", function () {
+        current = (current + 1) % total;
+        updateSlider();
+      });
+    }
+
+    updateSlider();
+  }
+
+  /* ============ Bouton retour en haut ============ */
+  var backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (window.scrollY > 600) backToTop.classList.add("is-visible");
+        else backToTop.classList.remove("is-visible");
+      },
+      { passive: true }
+    );
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ============ Formulaire de collaboration ============ */
+  var form = document.getElementById("collabForm");
+  if (form) {
+    var submitBtn = document.getElementById("submitBtn");
+    var submitLabel = document.getElementById("submitLabel");
+    var formSuccess = document.getElementById("formSuccess");
+    var formError = document.getElementById("formError");
+
+    function showFieldError(field, message) {
+      var wrapper = field.closest(".field-line");
+      if (!wrapper) return;
+      wrapper.classList.add("field-invalid");
+      var msg = wrapper.querySelector(".field-error-msg");
+      if (msg) {
+        msg.textContent = message;
+        msg.classList.remove("hidden");
+      }
+    }
+
+    function clearFieldError(field) {
+      var wrapper = field.closest(".field-line");
+      if (!wrapper) return;
+      wrapper.classList.remove("field-invalid");
+      var msg = wrapper.querySelector(".field-error-msg");
+      if (msg) {
+        msg.textContent = "";
+        msg.classList.add("hidden");
+      }
+    }
+
+    form.querySelectorAll("[required]").forEach(function (field) {
+      field.addEventListener("input", function () {
+        clearFieldError(field);
+      });
+      field.addEventListener("change", function () {
+        clearFieldError(field);
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (formSuccess) formSuccess.classList.add("hidden");
+      if (formError) formError.classList.add("hidden");
+
+      // Honeypot anti-spam : si rempli, on ignore silencieusement l'envoi.
+      var honeypot = form.querySelector("#website");
+      if (honeypot && honeypot.value.trim() !== "") {
+        form.reset();
+        return;
+      }
+
+      var isValid = true;
+      var firstInvalid = null;
+
+      form.querySelectorAll("[required]").forEach(function (field) {
+        clearFieldError(field);
+        var value = (field.value || "").trim();
+        var fieldValid = true;
+
+        if (!value) {
+          fieldValid = false;
+          showFieldError(field, "Ce champ est requis.");
+        } else if (field.type === "email") {
+          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(value)) {
+            fieldValid = false;
+            showFieldError(field, "Merci d'indiquer un email valide.");
+          }
+        }
+
+        if (!fieldValid) {
+          isValid = false;
+          if (!firstInvalid) firstInvalid = field;
         }
       });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-  );
 
-  revealElements.forEach((el) => observer.observe(el));
-}
+      if (!isValid) {
+        if (formError) formError.classList.remove("hidden");
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
 
-/* --------------------------------------------------------------------------
-   5. Année automatique dans le footer
-   -------------------------------------------------------------------------- */
-function initFooterYear() {
-  const yearEl = document.getElementById("current-year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-}
+      // Pas de backend branché ici : on confirme simplement la saisie côté client.
+      // Pour envoyer réellement la demande, relier ce formulaire à un service
+      // (Formspree, Netlify Forms, une API interne, etc.) et remplacer ce bloc.
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitLabel) submitLabel.textContent = "Envoi en cours…";
 
-/* --------------------------------------------------------------------------
-   6. Ombre du header au scroll
-   -------------------------------------------------------------------------- */
-function initHeaderShadowOnScroll() {
-  const header = document.getElementById("site-header");
-  if (!header) return;
-
-  const updateHeader = () => {
-    if (window.scrollY > 8) {
-      header.classList.add("shadow-md");
-    } else {
-      header.classList.remove("shadow-md");
-    }
-  };
-
-  updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
-}
-
-/* --------------------------------------------------------------------------
-   7. Aperçu et suppression de la photo (formulaire de consultation)
-   -------------------------------------------------------------------------- */
-function initPhotoUpload() {
-  const fileInput = document.getElementById("photo-input");
-  const previewWrapper = document.getElementById("photo-preview-wrapper");
-  const previewImage = document.getElementById("photo-preview-image");
-  const removeBtn = document.getElementById("photo-remove-btn");
-  const dropZoneLabel = document.getElementById("photo-dropzone-label");
-  const fileError = document.getElementById("photo-error");
-
-  if (!fileInput || !previewWrapper || !previewImage || !removeBtn) return;
-
-  const MAX_SIZE_MB = 5;
-  const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
-
-  fileInput.addEventListener("change", () => {
-    const file = fileInput.files && fileInput.files[0];
-    fileError.classList.add("hidden");
-    fileError.textContent = "";
-
-    if (!file) return;
-
-    if (!ALLOWED_TYPES.includes(file.type)) {
-      fileError.textContent =
-        "Format non pris en charge. Merci d'ajouter une image JPG, PNG, WEBP ou GIF.";
-      fileError.classList.remove("hidden");
-      fileInput.value = "";
-      return;
-    }
-
-    if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-      fileError.textContent = `L'image dépasse ${MAX_SIZE_MB } Mo. Merci de choisir une image plus légère.`;
-      fileError.classList.remove("hidden");
-      fileInput.value = "";
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      previewImage.src = e.target.result;
-      previewWrapper.classList.remove("hidden");
-      if (dropZoneLabel) dropZoneLabel.classList.add("hidden");
-    };
-    reader.readAsDataURL(file);
-  });
-
-  removeBtn.addEventListener("click", () => {
-    fileInput.value = "";
-    previewImage.src = "";
-    previewWrapper.classList.add("hidden");
-    fileError.classList.add("hidden");
-    if (dropZoneLabel) dropZoneLabel.classList.remove("hidden");
-  });
-}
-
-/* --------------------------------------------------------------------------
-   8. Validation et état du formulaire de consultation en ligne
-   -------------------------------------------------------------------------- */
-function initConsultationForm() {
-  const form = document.getElementById("consultation-form");
-  if (!form) return;
-
-  const nameInput = document.getElementById("field-name");
-  const phoneInput = document.getElementById("field-phone");
-  const addressInput = document.getElementById("field-address");
-  const typeSelect = document.getElementById("field-type");
-  const descriptionInput = document.getElementById("field-description");
-  const consentCheckbox = document.getElementById("field-consent");
-  const submitBtn = document.getElementById("consultation-submit");
-
-  const phoneError = document.getElementById("phone-error");
-
-  // Numéro sénégalais souple : accepte +221, 221 ou 9 chiffres locaux, espaces facultatifs
-  const PHONE_REGEX = /^(\+?221)?[\s]?7[0-8][\s]?\d{3}[\s]?\d{2}[\s]?\d{2}$|^(\+?221)?[\s]?[3][3][\s]?\d{3}[\s]?\d{2}[\s]?\d{2}$/;
-
-  function isPhoneValid(value) {
-    const cleaned = value.replace(/[\s.-]/g, "");
-    return PHONE_REGEX.test(cleaned) && cleaned.replace(/\D/g, "").length >= 9;
-  }
-
-  function validateField(input) {
-    if (!input) return true;
-    return input.value.trim().length > 0;
-  }
-
-  function updateSubmitState() {
-    const requiredFilled =
-      validateField(nameInput) &&
-      validateField(addressInput) &&
-      validateField(typeSelect) &&
-      validateField(descriptionInput) &&
-      phoneInput.value.trim().length > 0;
-
-    const consentChecked = consentCheckbox && consentCheckbox.checked;
-
-    const allValid = requiredFilled && consentChecked;
-
-    submitBtn.disabled = !allValid;
-    submitBtn.classList.toggle("opacity-50", !allValid);
-    submitBtn.classList.toggle("cursor-not-allowed", !allValid);
-  }
-
-  [nameInput, phoneInput, addressInput, typeSelect, descriptionInput].forEach(
-    (input) => {
-      if (!input) return;
-      input.addEventListener("input", updateSubmitState);
-      input.addEventListener("change", updateSubmitState);
-    }
-  );
-
-  if (consentCheckbox) {
-    consentCheckbox.addEventListener("change", updateSubmitState);
-  }
-
-  phoneInput.addEventListener("blur", () => {
-    if (phoneInput.value.trim().length === 0) {
-      phoneError.classList.add("hidden");
-      return;
-    }
-    if (!isPhoneValid(phoneInput.value)) {
-      phoneError.textContent =
-        "Merci de vérifier votre numéro de téléphone (ex : +221 77 123 45 67).";
-      phoneError.classList.remove("hidden");
-      phoneInput.classList.add("border-red-400");
-    } else {
-      phoneError.classList.add("hidden");
-      phoneInput.classList.remove("border-red-400");
-    }
-  });
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (!isPhoneValid(phoneInput.value)) {
-      phoneError.textContent =
-        "Merci de vérifier votre numéro de téléphone (ex : +221 77 123 45 67).";
-      phoneError.classList.remove("hidden");
-      phoneInput.classList.add("border-red-400");
-      phoneInput.focus();
-      return;
-    }
-
-    // Aucun backend : la demande n'est ni envoyée ni enregistrée réellement.
-    // Cette étape simule uniquement la préparation de la demande côté client.
-    const message = buildWhatsAppMessage({
-      name: nameInput.value.trim(),
-      phone: phoneInput.value.trim(),
-      address: addressInput.value.trim(),
-      type: typeSelect.options[typeSelect.selectedIndex]
-        ? typeSelect.options[typeSelect.selectedIndex].text
-        : "",
-      description: descriptionInput.value.trim(),
+      setTimeout(function () {
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitLabel) submitLabel.textContent = "Envoyer ma demande";
+        if (formSuccess) formSuccess.classList.remove("hidden");
+        form.reset();
+      }, 600);
     });
-
-    const whatsappBtn = document.getElementById("modal-whatsapp-btn");
-    if (whatsappBtn) {
-      whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-    }
-
-    openConfirmationModal();
-
-    form.reset();
-    const previewWrapper = document.getElementById("photo-preview-wrapper");
-    const dropZoneLabel = document.getElementById("photo-dropzone-label");
-    if (previewWrapper) previewWrapper.classList.add("hidden");
-    if (dropZoneLabel) dropZoneLabel.classList.remove("hidden");
-    updateSubmitState();
-  });
-
-  // État initial
-  updateSubmitState();
-}
-
-/* --------------------------------------------------------------------------
-   Construit le message WhatsApp pré-rempli à partir des champs du formulaire
-   -------------------------------------------------------------------------- */
-function buildWhatsAppMessage({ name, phone, address, type, description }) {
-  const lines = [
-    "Bonjour, je souhaite faire une demande de consultation.",
-    "",
-    `Nom complet : ${name}`,
-    `Téléphone : ${phone}`,
-    `Adresse : ${address}`,
-    `Type de demande : ${type}`,
-    `Description : ${description}`,
-  ];
-  return encodeURIComponent(lines.join("\n"));
-}
-
-/* --------------------------------------------------------------------------
-   9-10. Modal de confirmation
-   -------------------------------------------------------------------------- */
-function initModal() {
-  const modal = document.getElementById("confirmation-modal");
-  if (!modal) return;
-
-  const closeBtn = document.getElementById("modal-close-btn");
-  const overlay = document.getElementById("modal-overlay");
-
-  closeBtn.addEventListener("click", closeConfirmationModal);
-  overlay.addEventListener("click", closeConfirmationModal);
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeConfirmationModal();
-    }
-  });
-}
-
-function openConfirmationModal() {
-  const modal = document.getElementById("confirmation-modal");
-  if (!modal) return;
-  modal.classList.remove("hidden");
-  document.body.classList.add("overflow-hidden");
-
-  const closeBtn = document.getElementById("modal-close-btn");
-  if (closeBtn) closeBtn.focus();
-}
-
-function closeConfirmationModal() {
-  const modal = document.getElementById("confirmation-modal");
-  if (!modal) return;
-  modal.classList.add("hidden");
-  document.body.classList.remove("overflow-hidden");
-}
+  }
+})();

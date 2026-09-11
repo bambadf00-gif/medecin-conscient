@@ -3,1184 +3,1529 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Médecin Conscient | Consultation médicale à Dakar</title>
+    <title>Médecin Conscient — Santé. Éducation. Impact.</title>
     <meta
       name="description"
-      content="Médecin Conscient propose un accompagnement médical humain et accessible à Dakar, en consultation présentielle et en ligne."
-    />
-
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Médecin Conscient | Consultation médicale à Dakar"
-    />
-    <meta
-      property="og:description"
-      content="Une médecine humaine, accessible et attentive, en présentiel ou à distance."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-
-    <!-- Favicon (emoji en attendant un favicon définitif) -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>"
-    />
-
-    <!-- Google Fonts : Manrope -->
+      content="Médecin Conscient — créateur de contenu santé. Media kit digital et espace collaborations marques." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Tailwind CSS via CDN -->
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              sans: ["Manrope", "sans-serif"],
-            },
             colors: {
-              brand: {
-                DEFAULT: "#168A63",
-                dark: "#0B5D43",
-                light: "#EAF7F1",
-              },
-              bg: "#F8FAF9",
-              ink: {
-                DEFAULT: "#18332A",
-                soft: "#64748B",
-              },
+              cream: "#F7F6F2",
+              ink: "#111111",
+              violet: "#7657D9",
+              "violet-light": "#E9E3FF",
+              mist: "#E9E7E2",
+            },
+            fontFamily: {
+              display: ['"Plus Jakarta Sans"', "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              serif: ["Fraunces", "serif"],
             },
           },
         },
       };
     </script>
-
-    <!-- Lucide Icons via CDN -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: "Manrope", sans-serif;
-      }
-
-      /* Apparition au scroll */
-      [data-reveal] {
-        opacity: 0;
-        transform: translateY(16px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-      [data-reveal].is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Menu mobile animé */
-      #mobile-menu {
-        overflow: hidden;
-        transition:
-          max-height 0.35s ease,
-          opacity 0.25s ease;
-      }
-
-      /* Focus visible accessible */
-      a:focus-visible,
-      button:focus-visible,
-      input:focus-visible,
-      select:focus-visible,
-      textarea:focus-visible {
-        outline: 2px solid #168a63;
-        outline-offset: 2px;
-      }
-
-      .btn-float {
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-      .btn-float:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 24px rgba(11, 93, 67, 0.25);
-      }
-
-      .card-hover {
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
-      }
-      .card-hover:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 40px rgba(11, 93, 67, 0.12);
-      }
-    </style>
   </head>
-  <body class="bg-bg text-ink antialiased">
-    <!-- ==========================================================
-      HEADER
-      ========================================================== -->
+  <body class="font-body antialiased bg-cream text-ink">
+    <!-- ============ NAVBAR ============ -->
     <header
-      id="site-header"
-      class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-brand-light transition-shadow"
-    >
+      id="siteNav"
+      class="fixed top-0 inset-x-0 z-50 transition-colors duration-500">
       <div
-        class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between"
-      >
-        <!-- Logo -->
+        class="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between gap-3">
         <a
-          href="index.html"
-          class="flex items-center gap-2.5 shrink-0"
-          aria-label="Médecin Conscient — Accueil"
-        >
-          <span
-            class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center"
-          >
-            <i data-lucide="stethoscope" class="w-5 h-5 text-brand-dark"></i>
-          </span>
-          <span class="text-lg font-bold text-brand-dark leading-tight"
-            >Médecin Conscient</span
-          >
+          href="#hero"
+          class="font-display font-extrabold tracking-tight text-[4.2vw] xs:text-base sm:text-lg md:text-xl whitespace-nowrap min-w-0 truncate">
+          MÉDECIN <span class="text-violet">CONSCIENT</span>
         </a>
-
-        <!-- Navigation desktop -->
+        <!-- Desktop nav -->
         <nav
-          class="hidden md:flex items-center gap-9"
-          aria-label="Navigation principale"
-        >
+          class="hidden md:flex items-center gap-10 font-display text-sm font-medium">
+          <a href="#apropos" class="nav-link">À propos</a>
+          <a href="#contenus" class="nav-link">Contenus</a>
+          <a href="#marques" class="nav-link">Marques</a>
+          <a href="#temoignages" class="nav-link">Témoignages</a>
           <a
-            href="index.html"
-            class="text-sm font-semibold text-ink hover:text-brand transition-colors"
-            >Accueil</a
-          >
-          <a
-            href="contact.html"
-            class="text-sm font-semibold text-ink hover:text-brand transition-colors"
-            >Contact</a
-          >
+            href="#collaborer"
+            class="btn-arrow bg-ink text-cream px-5 py-2.5 rounded-full hover:bg-violet transition-colors duration-300">
+            Collaborer
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
         </nav>
-
-        <a
-          href="#consultation"
-          class="hidden md:inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
-        >
-          Consultation en ligne
-          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-        </a>
-
-        <!-- Bouton hamburger mobile -->
+        <!-- Mobile toggle -->
         <button
-          id="mobile-menu-toggle"
-          class="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-brand-dark hover:bg-brand-light transition-colors"
+          id="menuToggle"
+          aria-label="Ouvrir le menu"
           aria-expanded="false"
-          aria-controls="mobile-menu"
-          aria-label="Ouvrir le menu de navigation"
-        >
-          <i data-lucide="menu" id="icon-menu-open" class="w-6 h-6"></i>
-          <i data-lucide="x" id="icon-menu-close" class="w-6 h-6 hidden"></i>
+          class="md:hidden shrink-0 font-display font-semibold text-xl w-9 h-9 flex items-center justify-center">
+          <span id="menuIcon">&#9776;</span>
         </button>
       </div>
-
-      <!-- Menu mobile -->
-      <div
-        id="mobile-menu"
-        class="md:hidden max-h-0 opacity-0 bg-white border-t border-brand-light"
-      >
-        <nav
-          class="flex flex-col px-5 py-4 gap-1"
-          aria-label="Navigation mobile"
-        >
-          <a
-            href="index.html"
-            class="px-3 py-3 rounded-lg text-sm font-semibold text-ink hover:bg-brand-light"
-            >Accueil</a
-          >
-          <a
-            href="contact.html"
-            class="px-3 py-3 rounded-lg text-sm font-semibold text-ink hover:bg-brand-light"
-            >Contact</a
-          >
-          <a
-            href="#consultation"
-            class="mt-2 inline-flex items-center justify-center gap-2 bg-brand text-white text-sm font-semibold px-5 py-3 rounded-full"
-          >
-            Consultation en ligne
-            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          </a>
-        </nav>
-      </div>
     </header>
-
-    <main>
-      <!-- ==========================================================
-      HERO
-      ========================================================== -->
-      <section class="relative overflow-hidden">
-        <div
-          class="absolute -top-24 -right-24 w-96 h-96 bg-brand-light rounded-full blur-3xl opacity-70 pointer-events-none"
-        ></div>
-
-        <div
-          class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-14 pb-16 lg:pt-20 lg:pb-24"
+    <!-- Mobile fullscreen menu -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 z-40 bg-ink text-cream flex flex-col justify-between px-8 pt-28 pb-10 md:hidden">
+      <nav class="flex flex-col gap-6 font-display text-4xl font-semibold">
+        <a href="#apropos" class="mobile-link">À propos</a>
+        <a href="#contenus" class="mobile-link">Contenus</a>
+        <a href="#marques" class="mobile-link">Marques</a>
+        <a href="#temoignages" class="mobile-link">Témoignages</a>
+        <a href="#collaborer" class="mobile-link text-violet">Collaborer</a>
+      </nav>
+      <div
+        class="flex flex-wrap items-center gap-x-6 gap-y-3 font-display text-sm tracking-wide letter-wide">
+        <a
+          href="https://www.tiktok.com/@medecin_conscient?_r=1&_t=ZS-99cRrbFBkq0"
+          target="_blank"
+          rel="noopener"
+          class="hover:text-violet transition-colors"
+          >TIKTOK</a
         >
-          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <!-- Texte -->
-            <div data-reveal>
-              <span
-                class="inline-flex items-center gap-2 bg-brand-light text-brand-dark text-xs font-bold px-4 py-2 rounded-full"
+        <a
+          href="https://www.instagram.com/medecinconscient?stkn=MTh5ejA1ZHozZmxjcw=="
+          target="_blank"
+          rel="noopener"
+          class="hover:text-violet transition-colors"
+          >INSTAGRAM</a
+        >
+        <a
+          href="https://www.facebook.com/share/18tf2bpnhR/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener"
+          class="hover:text-violet transition-colors"
+          >FACEBOOK</a
+        >
+        <a
+          href="https://www.threads.com/@medecinconscient"
+          target="_blank"
+          rel="noopener"
+          class="hover:text-violet transition-colors"
+          >THREADS</a
+        >
+      </div>
+    </div>
+
+    <!-- ============ 01 — HERO ============ -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex flex-col justify-end overflow-hidden pt-24">
+      <div
+        class="max-w-[1400px] mx-auto w-full px-6 md:px-10 grid md:grid-cols-12 gap-6 md:gap-8 items-end flex-1">
+        <!-- Text block -->
+        <div class="md:col-span-6 order-2 md:order-1 pb-10 md:pb-16">
+          <p
+            class="reveal font-display text-xs md:text-sm font-semibold letter-wide text-violet mb-6">
+            CRÉATEUR &middot; MÉDECIN &middot; MÉDIA
+          </p>
+          <h1
+            class="reveal reveal-delay-1 font-display font-extrabold letter-tight uppercase leading-[0.88] text-[clamp(2.75rem,13vw,4.5rem)] md:text-[6.2vw] lg:text-[5.4vw]">
+            Médecin<br /><span class="text-violet">Conscient</span>
+          </h1>
+          <p
+            class="reveal reveal-delay-2 mt-6 text-lg md:text-xl text-ink/70 font-medium">
+            Santé. Éducation. Impact.
+          </p>
+          <div
+            class="reveal reveal-delay-2 flex flex-wrap gap-x-8 gap-y-2 mt-8 font-display text-sm md:text-base font-semibold">
+            <span><span class="text-violet">2.5M+</span> TikTok</span>
+            <span><span class="text-violet">120K+</span> Instagram</span>
+            <span><span class="text-violet">136K+</span> Facebook</span>
+            <span><span class="text-violet">31.5K+</span> Threads</span>
+          </div>
+          <div class="reveal reveal-delay-3 flex flex-wrap gap-4 mt-10">
+            <a
+              href="#collaborer"
+              class="btn-arrow bg-ink text-cream px-7 py-4 rounded-full font-display font-semibold text-sm hover:bg-violet transition-colors duration-300">
+              Collaborer
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a
+              href="#contenus"
+              class="btn-arrow border border-ink/30 px-7 py-4 rounded-full font-display font-semibold text-sm hover:border-ink transition-colors duration-300">
+              Voir les contenus
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M12 5v14M6 13l6 6 6-6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Portrait -->
+        <div class="md:col-span-6 order-1 md:order-2 relative">
+          <div
+            class="reveal aspect-[4/5] md:aspect-[3/4] w-full md:w-[92%] md:ml-auto md:-mr-6 lg:-mr-10 rounded-t-[2rem] md:rounded-t-[3rem] overflow-hidden img-zoom shadow-[0_40px_80px_-30px_rgba(17,17,17,0.35)]">
+            <img
+              src="assets/images/img2.png"
+              alt="Portrait de Médecin Conscient"
+              class="w-full h-full object-cover"
+              loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 — À PROPOS ============ -->
+    <section id="apropos" class="py-28 md:py-40 border-t border-ink/10">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16">
+          <div class="md:col-span-5 reveal">
+            <p
+              class="font-display text-xs font-semibold letter-wide text-violet mb-6">
+              01 — À PROPOS
+            </p>
+            <h2
+              class="font-display font-extrabold uppercase leading-[0.95] text-5xl md:text-6xl letter-tight">
+              Médecin.<br />Créateur.<br /><span class="text-violet"
+                >Conscient.</span
               >
-                <i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i>
-                Médecine humaine &amp; accessible
-              </span>
+            </h2>
 
-              <p class="mt-4 text-sm font-semibold text-brand-dark">
-                Médecin • Créateur de contenu • Sensibilisation santé
-              </p>
+            <div
+              class="flex flex-wrap gap-x-6 gap-y-3 mt-12 font-display text-sm font-semibold letter-wide text-ink/60">
+              <span>SANTÉ</span>
+              <span>ÉDUCATION</span>
+              <span>CRÉATION</span>
+              <span>IMPACT</span>
+            </div>
+          </div>
 
-              <h1
-                class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.15] text-ink"
-              >
-                Votre santé mérite une attention qui fait la différence.
-              </h1>
-
+          <div class="md:col-span-7 grid md:grid-cols-2 gap-10 items-start">
+            <div class="reveal reveal-delay-1 md:pt-4">
               <p
-                class="mt-6 text-base sm:text-lg text-ink-soft leading-relaxed max-w-xl"
-              >
-                Médecin Conscient vous accompagne avec une approche médicale
-                humaine, attentive et accessible, en consultation présentielle
-                ou à distance.
+                class="text-xl md:text-2xl font-medium leading-relaxed text-ink/85">
+                Médecin et créateur de contenu, Médecin Conscient transforme la
+                santé en contenu simple, accessible et engageant. À travers ses
+                vidéos, il sensibilise, éduque et crée une véritable
+                conversation autour de la santé et du bien-être.
               </p>
-
-              <div class="mt-8 flex flex-col sm:flex-row gap-3.5">
-                <a
-                  href="contact.html"
-                  class="inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-3.5 rounded-full transition-colors"
-                >
-                  Prendre contact
-                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-                <a
-                  href="#consultation"
-                  class="inline-flex items-center justify-center gap-2 bg-white border border-brand/30 hover:border-brand text-brand-dark font-semibold px-7 py-3.5 rounded-full transition-colors"
-                >
-                  Consulter en ligne
-                </a>
-              </div>
-
-              <!-- Indicateurs -->
-              <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5">
-                <div class="flex items-center gap-3">
-                  <span
-                    class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center shrink-0"
-                  >
-                    <i data-lucide="ear" class="w-5 h-5 text-brand-dark"></i>
-                  </span>
-                  <span class="text-sm font-semibold text-ink"
-                    >Écoute attentive</span
-                  >
-                </div>
-                <div class="flex items-center gap-3">
-                  <span
-                    class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center shrink-0"
-                  >
-                    <i data-lucide="video" class="w-5 h-5 text-brand-dark"></i>
-                  </span>
-                  <span class="text-sm font-semibold text-ink"
-                    >Consultation à distance</span
-                  >
-                </div>
-                <div class="flex items-center gap-3">
-                  <span
-                    class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center shrink-0"
-                  >
-                    <i
-                      data-lucide="hand-heart"
-                      class="w-5 h-5 text-brand-dark"
-                    ></i>
-                  </span>
-                  <span class="text-sm font-semibold text-ink"
-                    >Accompagnement personnalisé</span
-                  >
-                </div>
-              </div>
+              <p class="mt-6 text-base md:text-lg text-ink/60 leading-relaxed">
+                Une approche directe, humaine et accessible qui rassemble
+                aujourd'hui une communauté de plusieurs millions de personnes
+                sur les réseaux sociaux.
+              </p>
             </div>
 
-            <!-- Image -->
-            <div class="relative" data-reveal>
-              <div
-                class="absolute -z-10 -bottom-6 -left-6 w-2/3 h-2/3 bg-brand-light rounded-3xl"
-                aria-hidden="true"
-              ></div>
+            <div
+              class="reveal reveal-delay-2 img-zoom rounded-2xl overflow-hidden aspect-[4/5]">
               <img
-                src="assets/images/img2.png"
-                alt="Illustration d'une consultation médicale à distance entre un médecin et un patient"
-                class="w-full h-[420px] sm:h-[480px] object-cover rounded-3xl shadow-xl"
-                loading="eager"
-              />
+                src="assets/images/img1.png"
+                alt="Médecin Conscient en tournage"
+                class="w-full h-full object-cover"
+                loading="lazy" />
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ==========================================================
-        PRÉSENTATION
-        ========================================================== -->
-      <section id="presentation" class="py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <!-- Photo -->
-            <div data-reveal class="order-2 lg:order-1">
-              <div class="relative max-w-md mx-auto lg:mx-0">
-                <div
-                  class="absolute -z-10 -top-5 -right-5 w-full h-full bg-brand-light rounded-3xl"
-                  aria-hidden="true"
-                ></div>
-                <img
-                  src="assets/images/img1.png"
-                  alt="Photo du médecin, Médecin Conscient"
-                  class="w-full h-[380px] sm:h-[440px] object-cover rounded-3xl shadow-lg"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <!-- Texte -->
-            <div data-reveal class="order-1 lg:order-2">
-              <span class="text-xs font-bold text-brand-dark tracking-wide"
-                >Une médecine à l'écoute</span
-              >
-
-              <h2
-                class="mt-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
-              >
-                À propos de Médecin Conscient
-              </h2>
-
-              <p class="mt-3 text-lg font-semibold text-ink">
-                Une approche médicale basée sur l'écoute et la confiance.
-              </p>
-
-              <p class="mt-5 text-ink-soft leading-relaxed">
-                Médecin Conscient place l'humain au cœur de la prise en charge.
-                Chaque consultation est l'occasion d'écouter, de comprendre et
-                d'accompagner le patient avec attention et bienveillance.
-              </p>
-
-              <p class="mt-4 text-ink-soft leading-relaxed">
-                Que vous souhaitiez consulter en présentiel ou à distance,
-                l'objectif est de vous proposer un accompagnement clair,
-                professionnel et adapté à votre situation.
-              </p>
-
-              <ul class="mt-7 grid sm:grid-cols-2 gap-3.5">
-                <li
-                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
-                >
-                  <i
-                    data-lucide="check-circle-2"
-                    class="w-5 h-5 text-brand shrink-0"
-                  ></i>
-                  Écoute et bienveillance
-                </li>
-                <li
-                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
-                >
-                  <i
-                    data-lucide="check-circle-2"
-                    class="w-5 h-5 text-brand shrink-0"
-                  ></i>
-                  Consultation présentielle
-                </li>
-                <li
-                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
-                >
-                  <i
-                    data-lucide="check-circle-2"
-                    class="w-5 h-5 text-brand shrink-0"
-                  ></i>
-                  Consultation en ligne
-                </li>
-                <li
-                  class="flex items-center gap-2.5 text-sm font-semibold text-ink"
-                >
-                  <i
-                    data-lucide="check-circle-2"
-                    class="w-5 h-5 text-brand shrink-0"
-                  ></i>
-                  Suivi personnalisé
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================
-        MISSION
-        ========================================================== -->
-      <section id="mission" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div class="max-w-2xl mx-auto text-center" data-reveal>
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
-            >
-              Faire de la santé une conversation accessible à tous.
-            </h2>
-            <p class="mt-4 text-ink-soft leading-relaxed">
-              Informer, prévenir et sensibiliser pour aider chacun à mieux
-              comprendre les enjeux liés à sa santé.
-            </p>
-          </div>
-
-          <div class="mt-12 grid sm:grid-cols-3 gap-6">
-            <!-- Comprendre -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center"
-            >
-              <span
-                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i data-lucide="lightbulb" class="w-6 h-6 text-brand-dark"></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Comprendre</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Rendre les sujets de santé plus simples et plus accessibles.
-              </p>
-            </div>
-
-            <!-- Prévenir -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center"
-            >
-              <span
-                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i
-                  data-lucide="shield-check"
-                  class="w-6 h-6 text-brand-dark"
-                ></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Prévenir</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Encourager chacun à adopter de bonnes habitudes et à mieux
-                connaître les risques liés à sa santé.
-              </p>
-            </div>
-
-            <!-- Sensibiliser -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center"
-            >
-              <span
-                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i data-lucide="megaphone" class="w-6 h-6 text-brand-dark"></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Sensibiliser</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Partager des informations utiles et contribuer à une meilleure
-                culture de santé.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================
-        SERVICES
-        ========================================================= -->
-      <section id="services" class="py-20 lg:py-28 bg-bg">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div class="max-w-2xl" data-reveal>
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
-            >
-              Nos services
-            </h2>
-            <p class="mt-4 text-ink-soft leading-relaxed">
-              Une prise en charge adaptée à vos besoins, en présentiel comme à
-              distance.
-            </p>
-          </div>
-
-          <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            <!-- Carte 1 -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
-            >
-              <span
-                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i
-                  data-lucide="stethoscope"
-                  class="w-6 h-6 text-brand-dark"
-                ></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Consultation présentielle</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Un échange médical au cabinet pour évaluer votre situation et
-                vous accompagner dans votre prise en charge.
-              </p>
-            </div>
-
-            <!-- Carte 2 -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
-            >
-              <span
-                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i data-lucide="monitor" class="w-6 h-6 text-brand-dark"></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Consultation en ligne</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Échangez avec le médecin à distance lorsque vous ne pouvez pas
-                vous déplacer.
-              </p>
-            </div>
-
-            <!-- Carte 3 -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
-            >
-              <span
-                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i
-                  data-lucide="clipboard-list"
-                  class="w-6 h-6 text-brand-dark"
-                ></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Suivi médical</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Un accompagnement adapté pour assurer le suivi de votre
-                situation dans le temps.
-              </p>
-            </div>
-
-            <!-- Carte 4 -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
-            >
-              <span
-                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i data-lucide="image-plus" class="w-5 h-5 text-brand-dark"></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Conseils et prévention</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Des conseils pour mieux comprendre votre santé et adopter les
-                bons réflexes.
-              </p>
-            </div>
-
-            <!--Carte 5 -->
-            <div
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7"
-            >
-              <span
-                class="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <i data-lucide="megaphone" class="w-6 h-6 text-brand-dark"></i>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Publicité / Collaboration</h3>
-              <p class="mt-2.5 text-sm text-ink-soft leading-relaxed">
-                Partenariats et visibilité pour des projets médicaux ou
-                éducatifs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================
-      RÉSEAUX SOCIAUX
-      ========================================================== -->
-      <section id="reseaux-sociaux" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div class="max-w-2xl mx-auto text-center" data-reveal>
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
-            >
-              Suivez Médecin Conscient
-            </h2>
-            <p class="mt-4 text-ink-soft leading-relaxed">
-              Retrouvez des contenus de santé, de prévention et de
-              sensibilisation sur les réseaux sociaux.
-            </p>
-          </div>
-
-          <div class="mt-12 grid sm:grid-cols-3 gap-6">
-            <!-- TikTok -->
-            <a
-              href="https://www.tiktok.com/@medecin_conscient?_r=1&_t=ZS-99cRrbFBkq0"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center block"
-            >
-              <span
-                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="w-6 h-6 text-brand-dark"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"
-                  />
-                </svg>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">TikTok</h3>
-              <p class="mt-1 text-2xl font-extrabold text-brand-dark">+2,5 M</p>
-              <span
-                class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
-              >
-                Suivre
-                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-              </span>
-            </a>
-
-            <!-- Instagram -->
-            <a
-              href="https://www.instagram.com/medecinconscient?stkn=MTh5ejA1ZHozZmxjcw=="
-              target="_blank"
-              rel="noopener noreferrer"
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center block"
-            >
-              <span
-                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-6 h-6 text-brand-dark"
-                >
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Instagram</h3>
-              <p class="mt-1 text-2xl font-extrabold text-brand-dark">+112 K</p>
-              <span
-                class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
-              >
-                Suivre
-                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-              </span>
-            </a>
-
-            <!-- Facebook -->
-            <a
-              href="https://www.facebook.com/share/18tf2bpnhR/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-reveal
-              class="card-hover bg-bg border border-brand-light rounded-2xl p-7 text-center block"
-            >
-              <span
-                class="mx-auto w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-6 h-6 text-brand-dark"
-                >
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                  />
-                </svg>
-              </span>
-              <h3 class="mt-5 font-bold text-ink">Facebook</h3>
-              <p class="mt-1 text-2xl font-extrabold text-brand-dark">+136 K</p>
-              <span
-                class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
-              >
-                Suivre
-                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-              </span>
-            </a>
-          </div>
-
-          <p class="mt-10 text-center text-sm font-semibold text-ink-soft">
-            Communauté totale :
-            <span class="text-brand-dark font-extrabold">+2,7 M+</span>
+    <!-- ============ 03 — CONTENUS ============ -->
+    <section id="contenus" class="py-28 md:py-40 bg-mist/40">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div
+          class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14 md:mb-20">
+          <h2
+            class="font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight">
+            Ce que<br />je crée.
+          </h2>
+          <p class="font-display text-base md:text-lg text-ink/60 max-w-xs">
+            Des contenus qui informent, sensibilisent et engagent.
           </p>
         </div>
-      </section>
 
-      <!-- ==========================================================
-        CONSULTATION EN LIGNE
-        ========================================================== -->
-      <section id="consultation" class="py-20 lg:py-28 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div class="max-w-2xl mx-auto text-center" data-reveal>
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight"
-            >
-              Consultez votre médecin en ligne
-            </h2>
-            <p class="mt-4 text-ink-soft leading-relaxed">
-              Vous ne pouvez pas vous déplacer ? Décrivez votre situation et
-              envoyez les informations nécessaires afin de demander une
-              consultation en ligne.
-            </p>
+        <!-- Bento grid — vrai bento asymétrique dès le mobile (pas de grille uniforme) -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 auto-rows-[130px] sm:auto-rows-[160px] md:auto-rows-auto md:grid-rows-2 gap-3 md:gap-4 md:h-[720px]">
+          <!-- Vidéo 1 — hero, grand format en haut sur toute la largeur -->
+          <div
+            class="reveal content-item col-span-2 row-span-2 md:col-span-1 img-zoom rounded-2xl overflow-hidden relative"
+            data-media="video">
+            <!-- Chemin vidéo : remplacer assets/videos/video3.mp4 par le fichier final -->
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/video3.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+            <span
+              class="absolute bottom-3 left-3 md:bottom-4 md:left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-ink/70 backdrop-blur-sm text-cream max-w-[calc(100%-1.5rem)]">
+              <svg
+                class="shrink-0"
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span
+                class="num-counter font-display text-xs font-semibold whitespace-nowrap"
+                data-count="35.5"
+                data-suffix="K vues"
+                >0</span
+              >
+            </span>
           </div>
 
-          <div class="mt-14 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            <!-- Étapes -->
-            <div data-reveal class="lg:sticky lg:top-28">
-              <ol class="space-y-8">
-                <li class="flex gap-4">
-                  <span
-                    class="shrink-0 w-11 h-11 rounded-full bg-white text-brand-dark font-extrabold flex items-center justify-center border border-brand/20"
-                    >01</span
-                  >
-                  <div>
-                    <h3 class="font-bold text-ink">Remplissez le formulaire</h3>
-                    <p class="mt-1 text-sm text-ink-soft leading-relaxed">
-                      Décrivez votre demande et votre situation.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex gap-4">
-                  <span
-                    class="shrink-0 w-11 h-11 rounded-full bg-white text-brand-dark font-extrabold flex items-center justify-center border border-brand/20"
-                    >02</span
-                  >
-                  <div>
-                    <h3 class="font-bold text-ink">Envoyez votre demande</h3>
-                    <p class="mt-1 text-sm text-ink-soft leading-relaxed">
-                      Ajoutez si nécessaire une photo de la partie concernée.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex gap-4">
-                  <span
-                    class="shrink-0 w-11 h-11 rounded-full bg-white text-brand-dark font-extrabold flex items-center justify-center border border-brand/20"
-                    >03</span
-                  >
-                  <div>
-                    <h3 class="font-bold text-ink">Le médecin vous contacte</h3>
-                    <p class="mt-1 text-sm text-ink-soft leading-relaxed">
-                      Votre demande sera étudiée et le médecin vous indiquera la
-                      suite adaptée.
-                    </p>
-                  </div>
-                </li>
-              </ol>
-
-              <div
-                class="mt-9 flex gap-3 bg-white border border-brand/20 rounded-2xl p-5"
-                role="note"
+          <!-- Vidéo 2 — petit format, colonne gauche -->
+          <div
+            class="reveal reveal-delay-1 content-item col-span-1 row-span-1 img-zoom rounded-2xl overflow-hidden relative"
+            data-media="video">
+            <!-- Chemin vidéo : remplacer assets/videos/videos1.mp4 par le fichier final -->
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/video3m.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+            <span
+              class="absolute bottom-2 left-2 md:bottom-3 md:left-3 flex items-center gap-1 px-2 py-1 md:px-2.5 md:py-1 rounded-full bg-ink/70 backdrop-blur-sm text-cream max-w-[calc(100%-1rem)]">
+              <svg
+                class="shrink-0"
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span
+                class="num-counter font-display text-[9px] md:text-[11px] font-semibold whitespace-nowrap"
+                data-count="3.3"
+                data-suffix="M vues"
+                >0</span
               >
-                <i
-                  data-lucide="triangle-alert"
-                  class="w-5 h-5 text-brand-dark shrink-0 mt-0.5"
-                ></i>
-                <p class="text-sm text-ink-soft leading-relaxed">
-                  <strong class="text-ink">Important :</strong> ce formulaire
-                  constitue une demande de consultation. Il ne remplace pas une
-                  consultation médicale urgente. En cas d'urgence, contactez
-                  immédiatement les services d'urgence appropriés.
-                </p>
-              </div>
-            </div>
+            </span>
+          </div>
+          <!-- Vidéo 3 — format haut, colonne droite (span 2 lignes) -->
+          <div
+            class="reveal reveal-delay-2 content-item col-span-1 row-span-2 img-zoom rounded-2xl overflow-hidden relative"
+            data-media="video">
+            <!-- Chemin vidéo : remplacer assets/videos/videos1.mp4 par le fichier final -->
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/video38m.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+            <span
+              class="absolute bottom-2.5 left-2.5 md:bottom-4 md:left-4 flex items-center gap-1 md:gap-1.5 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-ink/70 backdrop-blur-sm text-cream max-w-[calc(100%-1.25rem)]">
+              <svg
+                class="shrink-0"
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span
+                class="num-counter font-display text-[10px] md:text-xs font-semibold whitespace-nowrap"
+                data-count="3.8"
+                data-suffix="M vues"
+                >0</span
+              >
+            </span>
+          </div>
 
-            <!-- Formulaire -->
-            <div data-reveal class="bg-white rounded-3xl shadow-xl p-6 sm:p-9">
-              <h3 class="text-xl font-bold text-ink">
-                Demander une consultation en ligne
-              </h3>
+          <!-- Vidéo 4 — petit format, colonne gauche -->
+          <div
+            class="reveal reveal-delay-1 content-item col-span-1 row-span-1 img-zoom rounded-2xl overflow-hidden relative"
+            data-media="video">
+            <!-- Chemin vidéo : remplacer assets/videos/video2.mp4 par le fichier final -->
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/video26.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+            <span
+              class="absolute bottom-2 left-2 md:bottom-3 md:left-3 flex items-center gap-1 px-2 py-1 md:px-2.5 md:py-1 rounded-full bg-ink/70 backdrop-blur-sm text-cream max-w-[calc(100%-1rem)]">
+              <svg
+                class="shrink-0"
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span
+                class="num-counter font-display text-[9px] md:text-[11px] font-semibold whitespace-nowrap"
+                data-count="2.6"
+                data-suffix="M vues"
+                >0</span
+              >
+            </span>
+          </div>
 
-              <form id="consultation-form" class="mt-6 space-y-5" novalidate>
-                <!-- Nom complet -->
-                <div>
-                  <label
-                    for="field-name"
-                    class="block text-sm font-semibold text-ink mb-1.5"
-                  >
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="field-name"
-                    name="name"
-                    required
-                    placeholder="Votre nom et prénom"
-                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors"
-                  />
-                </div>
-
-                <!-- Téléphone -->
-                <div>
-                  <label
-                    for="field-phone"
-                    class="block text-sm font-semibold text-ink mb-1.5"
-                  >
-                    Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    id="field-phone"
-                    name="phone"
-                    required
-                    placeholder="+221 XX XXX XX XX"
-                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors"
-                    aria-describedby="phone-error"
-                  />
-                  <p
-                    id="phone-error"
-                    class="hidden mt-1.5 text-xs font-medium text-red-500"
-                  ></p>
-                </div>
-
-                <!-- Adresse -->
-                <div>
-                  <label
-                    for="field-address"
-                    class="block text-sm font-semibold text-ink mb-1.5"
-                  >
-                    Adresse
-                  </label>
-                  <input
-                    type="text"
-                    id="field-address"
-                    name="address"
-                    required
-                    placeholder="Votre adresse ou quartier"
-                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors"
-                  />
-                </div>
-
-                <!-- Type de demande -->
-                <div>
-                  <label
-                    for="field-type"
-                    class="block text-sm font-semibold text-ink mb-1.5"
-                  >
-                    Type de demande / problème
-                  </label>
-                  <select
-                    id="field-type"
-                    name="type"
-                    required
-                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink focus:border-brand outline-none transition-colors bg-white"
-                  >
-                    <option value="">
-                      Sélectionnez le type de consultation
-                    </option>
-                    <option value="generale">Consultation générale</option>
-                    <option value="question">Question de santé</option>
-                    <option value="suivi">Suivi</option>
-                    <option value="prevention">Prévention</option>
-                    <option value="autre">Autre</option>
-                  </select>
-                </div>
-
-                <!-- Description -->
-                <div>
-                  <label
-                    for="field-description"
-                    class="block text-sm font-semibold text-ink mb-1.5"
-                  >
-                    Décrivez votre situation
-                  </label>
-                  <textarea
-                    id="field-description"
-                    name="description"
-                    required
-                    rows="4"
-                    placeholder="Expliquez brièvement ce que vous ressentez, depuis quand et les informations importantes."
-                    class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-ink placeholder:text-gray-400 focus:border-brand outline-none transition-colors resize-none"
-                  ></textarea>
-                </div>
-
-                <!-- Photo -->
-                <div>
-                  <label
-                    for="photo-input"
-                    class="block text-sm font-semibold text-ink mb-1.5"
-                  >
-                    Photo de la partie concernée (facultatif)
-                  </label>
-                  <p class="text-xs text-ink-soft mb-2.5">
-                    Vous pouvez joindre une photo claire de la partie concernée
-                    si cela peut aider à comprendre votre demande.
-                  </p>
-
-                  <label
-                    id="photo-dropzone-label"
-                    for="photo-input"
-                    class="flex items-center gap-3 border-2 border-dashed border-gray-200 hover:border-brand rounded-xl px-4 py-4 cursor-pointer transition-colors"
-                  >
-                    <i
-                      data-lucide="image-up"
-                      class="w-5 h-5 text-brand-dark"
-                    ></i>
-                    <span class="text-sm text-ink-soft"
-                      >Choisir une image…</span
-                    >
-                  </label>
-                  <input
-                    type="file"
-                    id="photo-input"
-                    name="photo"
-                    accept="image/*"
-                    class="sr-only"
-                    aria-describedby="photo-error"
-                  />
-                  <p
-                    id="photo-error"
-                    class="hidden mt-1.5 text-xs font-medium text-red-500"
-                  ></p>
-
-                  <div
-                    id="photo-preview-wrapper"
-                    class="hidden mt-3 relative inline-block"
-                  >
-                    <img
-                      id="photo-preview-image"
-                      src=""
-                      alt="Aperçu de la photo jointe à la demande"
-                      class="w-28 h-28 object-cover rounded-xl border border-gray-200"
-                    />
-                    <button
-                      type="button"
-                      id="photo-remove-btn"
-                      aria-label="Supprimer la photo sélectionnée"
-                      class="absolute -top-2 -right-2 w-7 h-7 bg-white border border-gray-200 rounded-full flex items-center justify-center text-ink-soft hover:text-red-500 hover:border-red-300 transition-colors shadow-sm"
-                    >
-                      <i data-lucide="x" class="w-4 h-4"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Consentement -->
-                <div class="flex items-start gap-3 pt-1">
-                  <input
-                    type="checkbox"
-                    id="field-consent"
-                    name="consent"
-                    required
-                    class="mt-1 w-4 h-4 rounded border-gray-300 text-brand focus:ring-brand shrink-0"
-                  />
-                  <label
-                    for="field-consent"
-                    class="text-xs text-ink-soft leading-relaxed"
-                  >
-                    J'accepte que les informations transmises soient utilisées
-                    uniquement dans le cadre du traitement de ma demande de
-                    consultation.
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  id="consultation-submit"
-                  disabled
-                  class="w-full inline-flex items-center justify-center gap-2 bg-brand text-white font-semibold px-6 py-3.5 rounded-full transition-colors opacity-50 cursor-not-allowed hover:enabled:bg-brand-dark"
-                >
-                  Envoyer ma demande
-                  <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
-
-                <p class="text-xs text-ink-soft leading-relaxed text-center">
-                  Ce formulaire constitue une demande de consultation et ne
-                  remplace pas une consultation médicale. En cas d'urgence
-                  médicale, contactez immédiatement les services d'urgence
-                  appropriés.
-                </p>
-
-                <p class="text-xs text-ink-soft/80 leading-relaxed text-center">
-                  Site statique : aucune donnée n'est transmise ni stockée sur
-                  un serveur. Une solution backend sécurisée sera nécessaire
-                  avant la mise en production.
-                </p>
-              </form>
-            </div>
+          <!-- Vidéo 5 — bandeau large en bas, pleine largeur -->
+          <div
+            class="reveal reveal-delay-3 content-item col-span-2 row-span-1 img-zoom rounded-2xl overflow-hidden relative"
+            data-media="video">
+            <!-- Chemin vidéo : remplacer assets/videos/videos1.mp4 par le fichier final -->
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/video4m.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+            <span
+              class="absolute bottom-3 left-3 md:bottom-4 md:left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-ink/70 backdrop-blur-sm text-cream max-w-[calc(100%-1.5rem)]">
+              <svg
+                class="shrink-0"
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span
+                class="num-counter font-display text-xs font-semibold whitespace-nowrap"
+                data-count="4"
+                data-suffix="M vues"
+                >0</span
+              >
+            </span>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <!-- ==========================================================
-      FOOTER
-      ========================================================== -->
-    <footer class="bg-brand-dark text-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-14">
-        <div class="grid sm:grid-cols-3 gap-10">
-          <div>
-            <div class="flex items-center gap-2.5">
+    <!-- Lightbox (images uniquement) -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-[60] hidden bg-ink/90 items-center justify-center px-6">
+      <button
+        id="lightboxClose"
+        aria-label="Fermer"
+        class="absolute top-6 right-6 md:top-10 md:right-10 text-cream text-3xl font-display">
+        &times;
+      </button>
+      <div class="max-w-3xl w-full">
+        <img
+          id="lightboxImg"
+          src=""
+          alt=""
+          class="w-full max-h-[85vh] object-contain rounded-xl hidden" />
+      </div>
+    </div>
+
+    <!-- ============ 04 — AUDIENCE ============ -->
+    <section id="audience" class="py-28 md:py-40 bg-ink text-cream">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+        <h2
+          class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight mb-10 md:mb-14">
+          Une communauté<br />qui regarde.
+        </h2>
+
+        <div class="reveal reveal-delay-1 mb-16 md:mb-24">
+          <p
+            class="font-display text-xs md:text-sm letter-wide text-cream/40 mb-3">
+            CUMUL TOTAL &mdash; TOUS RÉSEAUX
+          </p>
+          <p
+            class="font-display font-extrabold text-6xl md:text-8xl text-violet leading-none num-counter"
+            data-count="2.8"
+            data-suffix="M+">
+            0
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+          <a
+            href="https://www.tiktok.com/@medecin_conscient?_r=1&_t=ZS-99cRrbFBkq0"
+            target="_blank"
+            rel="noopener"
+            class="reveal group border border-cream/15 rounded-3xl p-4 sm:p-5 md:p-10 flex flex-col justify-between gap-6 md:gap-10 hover:border-violet hover:bg-cream/[0.03] transition-colors duration-300">
+            <div class="flex items-start justify-between gap-2 flex-wrap">
               <span
-                class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center"
-              >
-                <i data-lucide="stethoscope" class="w-4.5 h-4.5 text-white"></i>
+                class="w-8 h-8 md:w-11 md:h-11 shrink-0 rounded-full border border-cream/20 flex items-center justify-center group-hover:border-violet group-hover:text-violet transition-colors">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path
+                    d="M16.6 5.82a4.28 4.28 0 0 1-.9-2.62h-3.02v13.44a2.6 2.6 0 1 1-1.84-2.49v-3.1a5.6 5.6 0 1 0 4.86 5.55V9.4a7.26 7.26 0 0 0 4.2 1.34V7.72a4.26 4.26 0 0 1-3.3-1.9z" />
+                </svg>
               </span>
-              <span class="font-bold text-lg">Médecin Conscient</span>
+              <span
+                class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
+                >SUIVRE &rarr;</span
+              >
             </div>
-            <p class="mt-4 text-sm text-white/70 leading-relaxed max-w-xs">
-              Votre santé mérite une attention qui fait la différence.
-            </p>
-          </div>
+            <div>
+              <p
+                class="font-display font-extrabold text-3xl md:text-7xl text-violet num-counter"
+                data-count="2.5"
+                data-suffix="M+">
+                0
+              </p>
+              <p
+                class="mt-2 md:mt-3 font-display text-[11px] md:text-sm letter-wide text-cream/50">
+                TIKTOK
+              </p>
+            </div>
+          </a>
 
-          <div>
-            <h4 class="text-sm font-bold text-white/90 mb-4">Navigation</h4>
-            <ul class="space-y-2.5 text-sm text-white/70">
-              <li>
-                <a href="index.html" class="hover:text-white transition-colors"
-                  >Accueil</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="hover:text-white transition-colors"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
+          <a
+            href="https://www.instagram.com/medecinconscient?stkn=MTh5ejA1ZHozZmxjcw=="
+            target="_blank"
+            rel="noopener"
+            class="reveal reveal-delay-1 group border border-cream/15 rounded-3xl p-4 sm:p-5 md:p-10 flex flex-col justify-between gap-6 md:gap-10 hover:border-violet hover:bg-cream/[0.03] transition-colors duration-300">
+            <div class="flex items-start justify-between gap-2 flex-wrap">
+              <span
+                class="w-8 h-8 md:w-11 md:h-11 shrink-0 rounded-full border border-cream/20 flex items-center justify-center group-hover:border-violet group-hover:text-violet transition-colors">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.2" cy="6.8" r="1" />
+                </svg>
+              </span>
+              <span
+                class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
+                >SUIVRE &rarr;</span
+              >
+            </div>
+            <div>
+              <p
+                class="font-display font-extrabold text-3xl md:text-7xl num-counter"
+                data-count="120"
+                data-suffix="K+">
+                0
+              </p>
+              <p
+                class="mt-2 md:mt-3 font-display text-[11px] md:text-sm letter-wide text-cream/50">
+                INSTAGRAM
+              </p>
+            </div>
+          </a>
 
-          <div>
-            <h4 class="text-sm font-bold text-white/90 mb-4">Informations</h4>
-            <ul class="space-y-2.5 text-sm text-white/70">
-              <li class="flex items-center gap-2">
-                <i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i>
-                Dakar, Sénégal
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="phone" class="w-4 h-4 shrink-0"></i>
-                +221 77 115 18 81
-              </li>
-            </ul>
-          </div>
+          <a
+            href="https://www.facebook.com/share/18tf2bpnhR/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener"
+            class="reveal reveal-delay-2 group border border-cream/15 rounded-3xl p-4 sm:p-5 md:p-10 flex flex-col justify-between gap-6 md:gap-10 hover:border-violet hover:bg-cream/[0.03] transition-colors duration-300">
+            <div class="flex items-start justify-between gap-2 flex-wrap">
+              <span
+                class="w-8 h-8 md:w-11 md:h-11 shrink-0 rounded-full border border-cream/20 flex items-center justify-center group-hover:border-violet group-hover:text-violet transition-colors">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <path
+                    d="M13.5 21v-7.6h2.55l.38-2.96h-2.93V8.54c0-.86.24-1.44 1.47-1.44h1.57V4.46c-.27-.04-1.2-.12-2.28-.12-2.25 0-3.79 1.37-3.79 3.89v2.17H8v2.96h2.47V21h3.03z" />
+                </svg>
+              </span>
+              <span
+                class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
+                >SUIVRE &rarr;</span
+              >
+            </div>
+            <div>
+              <p
+                class="font-display font-extrabold text-3xl md:text-7xl num-counter"
+                data-count="136"
+                data-suffix="K+">
+                0
+              </p>
+              <p
+                class="mt-2 md:mt-3 font-display text-[11px] md:text-sm letter-wide text-cream/50">
+                FACEBOOK
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="https://www.threads.com/@medecinconscient"
+            target="_blank"
+            rel="noopener"
+            class="reveal reveal-delay-3 group border border-cream/15 rounded-3xl p-4 sm:p-5 md:p-10 flex flex-col justify-between gap-6 md:gap-10 hover:border-violet hover:bg-cream/[0.03] transition-colors duration-300">
+            <div class="flex items-start justify-between gap-2 flex-wrap">
+              <span
+                class="w-8 h-8 md:w-11 md:h-11 shrink-0 rounded-full border border-cream/20 flex items-center justify-center group-hover:border-violet group-hover:text-violet transition-colors">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M7 3c-3 1-4.2 4-4 8s1.6 9 8.2 10c5 .8 8.6-1.6 9.3-5.4.5-3-1-5.2-3.6-5.6-2.3-.4-4 .7-4.2 2.4-.15 1.3.7 2.2 2 2.2" />
+                </svg>
+              </span>
+              <span
+                class="font-display text-[9px] md:text-xs letter-wide text-cream/40 group-hover:text-cream/70 transition-colors whitespace-nowrap"
+                >SUIVRE &rarr;</span
+              >
+            </div>
+            <div>
+              <p
+                class="font-display font-extrabold text-3xl md:text-7xl num-counter"
+                data-count="31.5"
+                data-suffix="K+">
+                0
+              </p>
+              <p
+                class="mt-2 md:mt-3 font-display text-[11px] md:text-sm letter-wide text-cream/50">
+                THREADS
+              </p>
+            </div>
+          </a>
         </div>
 
         <div
-          class="mt-12 pt-6 border-t border-white/10 text-xs text-white/60 text-center"
-        >
-          © <span id="current-year">2026</span> Médecin Conscient — Tous droits
-          réservés.
+          class="reveal mt-3 md:mt-6 border border-cream/15 rounded-3xl p-6 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-6">
+          <div>
+            <p
+              class="font-display font-extrabold text-3xl md:text-5xl leading-none">
+              500K &ndash; 3M+
+            </p>
+            <p
+              class="mt-3 font-display text-xs md:text-sm letter-wide text-cream/50">
+              VUES PAR VIDÉO
+            </p>
+          </div>
+          <p class="text-cream/50 font-display text-sm md:text-base max-w-sm">
+            Une audience engagée autour de la santé, de l'éducation et du
+            contenu digital.
+          </p>
         </div>
       </div>
+    </section>
+
+    <!-- ============ 05 — MARQUES ============ -->
+    <section id="marques" class="py-28 md:py-32 border-b border-ink/10">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10 mb-14 md:mb-16">
+        <h2
+          class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight">
+          Ils m'ont<br />fait confiance.
+        </h2>
+        <p
+          class="reveal reveal-delay-1 mt-6 text-ink/50 font-display text-sm md:text-base max-w-md">
+          Des collaborations avec des marques qui souhaitent créer du contenu
+          utile, humain et mémorable.
+        </p>
+      </div>
+
+      <div
+        class="marquee-wrap overflow-hidden border-y border-ink/10 py-8 md:py-10">
+        <div
+          class="marquee-track font-display font-extrabold uppercase text-4xl md:text-6xl letter-tight text-ink/90">
+          <span class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16">
+            <span>NIDO</span><span class="text-violet">&bull;</span>
+            <span>LEMFI TRANSFERT</span><span class="text-violet">&bull;</span>
+            <span>BETADINE IODE 10%</span
+            ><span class="text-violet">&bull;</span>
+            <span>BIOKYA COSMÉTIQUE</span
+            ><span class="text-violet">&bull;</span> <span>YAFA BEAUTY</span
+            ><span class="text-violet">&bull;</span> <span>KKBCEREAL</span
+            ><span class="text-violet">&bull;</span>
+          </span>
+          <span
+            class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16"
+            aria-hidden="true">
+            <span>NIDO</span><span class="text-violet">&bull;</span>
+            <span>LEMFI TRANSFERT</span><span class="text-violet">&bull;</span>
+            <span>BETADINE IODE 10%</span
+            ><span class="text-violet">&bull;</span>
+            <span>BIOKYA COSMÉTIQUE</span
+            ><span class="text-violet">&bull;</span> <span>YAFA BEAUTY</span
+            ><span class="text-violet">&bull;</span> <span>KKBCEREAL</span
+            ><span class="text-violet">&bull;</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="marquee-wrap overflow-hidden py-8 md:py-10">
+        <div
+          class="marquee-track-rev font-display font-semibold uppercase text-2xl md:text-4xl letter-tight text-ink/40">
+          <span class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16">
+            <span>YAFA BEAUTY</span><span>&bull;</span> <span>KKBCEREAL</span
+            ><span>&bull;</span> <span>NIDO</span><span>&bull;</span>
+            <span>BIOKYA COSMÉTIQUE</span><span>&bull;</span>
+            <span>BETADINE IODE 10%</span><span>&bull;</span>
+            <span>LEMFI TRANSFERT</span><span>&bull;</span>
+          </span>
+          <span
+            class="flex items-center gap-10 md:gap-16 pr-10 md:pr-16"
+            aria-hidden="true">
+            <span>YAFA BEAUTY</span><span>&bull;</span> <span>KKBCEREAL</span
+            ><span>&bull;</span> <span>NIDO</span><span>&bull;</span>
+            <span>BIOKYA COSMÉTIQUE</span><span>&bull;</span>
+            <span>BETADINE IODE 10%</span><span>&bull;</span>
+            <span>LEMFI TRANSFERT</span><span>&bull;</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="collaborations"
+      class="relative py-28 md:py-40 overflow-hidden">
+      <div class="max-w-[1500px] mx-auto px-5 sm:px-8 md:px-12">
+        <!-- HEADER -->
+        <div class="mb-20 md:mb-28">
+          <div class="flex items-center gap-4 mb-7">
+            <span class="w-10 h-px bg-ink"></span>
+            <span
+              class="font-display text-[11px] md:text-xs font-bold uppercase tracking-[0.25em] text-ink/50">
+              06 — Collaborations
+            </span>
+          </div>
+
+          <div class="grid md:grid-cols-12 gap-8 items-end">
+            <h2
+              class="reveal md:col-span-9 font-display font-extrabold uppercase leading-[0.88] text-5xl sm:text-6xl md:text-8xl tracking-[-0.055em]">
+              Des collaborations<br />
+              <span class="text-ink/35">qui ont du sens.</span>
+            </h2>
+
+            <p
+              class="reveal md:col-span-3 text-sm md:text-base text-ink/50 leading-relaxed md:pb-2">
+              Des marques, des univers et des projets transformés en contenus
+              pensés pour créer une vraie connexion avec leur audience.
+            </p>
+          </div>
+        </div>
+        <!-- COLLABORATIONS -->
+        <div class="space-y-0">
+          <!-- 01 — NIDO -->
+          <article
+            class="reveal group relative py-10 md:py-16 border-t border-ink/10">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <!-- IMAGE -->
+              <div class="md:col-span-8 order-1 relative">
+                <div
+                  class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
+                  <img
+                    src="assets/images/nido.png"
+                    alt="Collaboration NIDO"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
+
+                  <!-- Overlay -->
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
+
+                  <!-- Numéro -->
+                  <span
+                    class="absolute top-5 left-5 md:top-7 md:left-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
+                    01
+                  </span>
+
+                  <!-- Marque -->
+                  <div class="absolute bottom-5 left-5 md:bottom-7 md:left-7">
+                    <div
+                      class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
+                      <span
+                        class="font-display font-extrabold uppercase text-sm md:text-xl tracking-tight">
+                        NIDO
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- 02 — LEMFI -->
+          <article
+            class="reveal group relative py-10 md:py-16 border-t border-ink/10">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <!-- IMAGE -->
+              <div class="md:col-span-8 order-1 md:order-2 relative">
+                <div
+                  class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
+                  <img
+                    src="assets/images/lemfi.png"
+                    alt="Collaboration LemFi Transfert"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
+
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
+
+                  <span
+                    class="absolute top-5 right-5 md:top-7 md:right-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
+                    02
+                  </span>
+
+                  <div class="absolute bottom-5 right-5 md:bottom-7 md:right-7">
+                    <div
+                      class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
+                      <span
+                        class="font-display font-extrabold text-sm md:text-xl tracking-tight">
+                        LemFi
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 — BETADINE -->
+          <article
+            class="reveal group relative py-10 md:py-16 border-t border-ink/10">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div class="md:col-span-8 order-1 relative">
+                <div
+                  class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
+                  <img
+                    src="assets/images/beta.png"
+                    alt="Collaboration Betadine"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
+
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
+
+                  <span
+                    class="absolute top-5 left-5 md:top-7 md:left-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
+                    03
+                  </span>
+
+                  <div class="absolute bottom-5 left-5 md:bottom-7 md:left-7">
+                    <div
+                      class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
+                      <span
+                        class="font-display font-extrabold uppercase text-sm md:text-xl tracking-tight">
+                        Betadine
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 — BIOKYA -->
+          <article
+            class="reveal group relative py-10 md:py-16 border-t border-ink/10">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div class="md:col-span-8 order-1 md:order-2 relative">
+                <div
+                  class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
+                  <img
+                    src="assets/images/biokya.png"
+                    alt="Collaboration Biokya Cosmétique"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
+
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
+
+                  <span
+                    class="absolute top-5 right-5 md:top-7 md:right-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
+                    04
+                  </span>
+
+                  <div class="absolute bottom-5 right-5 md:bottom-7 md:right-7">
+                    <div
+                      class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
+                      <span
+                        class="font-display font-extrabold text-sm md:text-xl tracking-tight">
+                        Biokya
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 — YAFA BEAUTY -->
+          <article
+            class="reveal group relative py-10 md:py-16 border-t border-ink/10">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div class="md:col-span-8 order-1 relative">
+                <div
+                  class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
+                  <img
+                    src="assets/images/yafa.png"
+                    alt="Collaboration Yafa Beauty"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
+
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
+
+                  <span
+                    class="absolute top-5 left-5 md:top-7 md:left-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
+                    05
+                  </span>
+
+                  <div class="absolute bottom-5 left-5 md:bottom-7 md:left-7">
+                    <div
+                      class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
+                      <span
+                        class="font-display font-extrabold uppercase text-sm md:text-xl tracking-tight">
+                        Yafa Beauty
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- 06 — KKB -->
+          <article
+            class="reveal group relative py-10 md:py-16 border-t border-b border-ink/10">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div class="md:col-span-8 order-1 md:order-2 relative">
+                <div
+                  class="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] aspect-[16/10] bg-ink/5">
+                  <img
+                    src="assets/images/kkb.png"
+                    alt="Collaboration KKB Céréal"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" />
+
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60"></div>
+
+                  <span
+                    class="absolute top-5 right-5 md:top-7 md:right-7 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream/90 backdrop-blur-sm flex items-center justify-center font-display font-bold text-xs">
+                    06
+                  </span>
+
+                  <div class="absolute bottom-5 right-5 md:bottom-7 md:right-7">
+                    <div
+                      class="px-5 py-3 md:px-7 md:py-4 rounded-full bg-cream/95 backdrop-blur-md shadow-lg">
+                      <span
+                        class="font-display font-extrabold text-sm md:text-xl tracking-tight">
+                        KKB Céréal
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 — TÉMOIGNAGES ============ -->
+    <section id="temoignages" class="py-28 md:py-40 bg-cream">
+      <div class="max-w-[1000px] mx-auto px-6 md:px-10 text-center">
+        <h2
+          class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight mb-16 md:mb-20">
+          Ils en parlent.
+        </h2>
+
+        <div class="relative">
+          <div id="testimonialTrack" class="overflow-hidden">
+            <div
+              id="testimonialInner"
+              class="flex transition-transform duration-700"
+              style="transition-timing-function: var(--ease)">
+              <div class="w-full shrink-0 px-2 md:px-10">
+                <p class="font-serif italic text-2xl md:text-4xl leading-snug">
+                  &ldquo;Une collaboration fluide et un contenu qui a vraiment
+                  parlé à notre communauté. Le message est passé avec beaucoup
+                  plus d'impact qu'une campagne classique.&rdquo;
+                </p>
+                <p class="mt-8 font-display font-semibold">
+                  [Responsable Communication] &mdash; NIDO
+                </p>
+              </div>
+
+              <div class="w-full shrink-0 px-2 md:px-10">
+                <p class="font-serif italic text-2xl md:text-4xl leading-snug">
+                  &ldquo;Un vrai sens du rythme et du format court. La campagne
+                  a généré bien plus d'engagement que ce qu'on attendait, avec
+                  une audience très qualifiée.&rdquo;
+                </p>
+                <p class="mt-8 font-display font-semibold">
+                  [Directeur Marketing] &mdash; LemFi Transfert
+                </p>
+              </div>
+
+              <div class="w-full shrink-0 px-2 md:px-10">
+                <p class="font-serif italic text-2xl md:text-4xl leading-snug">
+                  &ldquo;La légitimité d'un professionnel de santé qui explique
+                  simplement, sans jargon : c'est exactement ce qu'il fallait
+                  pour parler prévention à grande échelle.&rdquo;
+                </p>
+                <p class="mt-8 font-display font-semibold">
+                  [Chef de Produit] &mdash; Betadine Iode 10%
+                </p>
+              </div>
+
+              <div class="w-full shrink-0 px-2 md:px-10">
+                <p class="font-serif italic text-2xl md:text-4xl leading-snug">
+                  &ldquo;Un contenu soigné, livré dans les temps, et surtout une
+                  vraie compréhension de notre marque. On retravaillera avec lui
+                  sans hésiter.&rdquo;
+                </p>
+                <p class="mt-8 font-display font-semibold">
+                  [Responsable Partenariats] &mdash; Biokya Cosmétique
+                </p>
+              </div>
+
+              <div class="w-full shrink-0 px-2 md:px-10">
+                <p class="font-serif italic text-2xl md:text-4xl leading-snug">
+                  &ldquo;Une esthétique impeccable et un ton juste. Les retours
+                  de notre communauté ont été unanimement positifs après la
+                  sortie du contenu.&rdquo;
+                </p>
+                <p class="mt-8 font-display font-semibold">
+                  [Responsable Communication] &mdash; Yafa Beauty
+                </p>
+              </div>
+
+              <div class="w-full shrink-0 px-2 md:px-10">
+                <p class="font-serif italic text-2xl md:text-4xl leading-snug">
+                  &ldquo;Professionnalisme du brief jusqu'à la livraison, et des
+                  résultats mesurables sur la notoriété de la marque. Une
+                  collaboration très satisfaisante.&rdquo;
+                </p>
+                <p class="mt-8 font-display font-semibold">
+                  [Responsable de Marque] &mdash; KKB Céréal
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-6 mt-14">
+            <button
+              id="testiPrev"
+              aria-label="Témoignage précédent"
+              class="w-11 h-11 rounded-full border border-ink/20 flex items-center justify-center hover:border-ink transition-colors">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <p class="font-display text-sm text-ink/50">
+              <span id="testiIndex">01</span> / 06
+            </p>
+            <button
+              id="testiNext"
+              aria-label="Témoignage suivant"
+              class="w-11 h-11 rounded-full border border-ink/20 flex items-center justify-center hover:border-ink transition-colors">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 — PHOTOGRAPHIES ============ -->
+    <section id="photos" class="py-28 md:py-40 border-t border-ink/10">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+        <h2
+          class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight mb-14 md:mb-20">
+          Coulisses du contenu
+        </h2>
+        <div
+          class="grid grid-cols-2 md:grid-cols-6 auto-rows-[140px] md:auto-rows-[150px] gap-3 md:gap-5">
+          <div
+            class="reveal col-span-1 row-span-2 md:col-span-2 md:row-span-2 img-zoom rounded-[1.75rem] overflow-hidden relative">
+            <!-- Chemin vidéo : remplacer assets/videos/videos2.mp4 par le fichier final -->
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/videonido.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
+            <span
+              class="absolute top-4 left-4 md:top-5 md:left-5 px-3 py-1.5 rounded-full border border-cream/50 backdrop-blur-sm text-cream font-display text-[10px] md:text-xs font-medium letter-wide">
+              Coulisses
+            </span>
+          </div>
+
+          <!-- Tuile haute droite -->
+          <div
+            class="reveal reveal-delay-1 col-span-1 row-span-1 md:col-span-2 md:row-span-1 img-zoom rounded-2xl overflow-hidden relative">
+            <!-- Chemin vidéo : remplacer assets/videos/videos4.mp4 par le fichier final -->
+            <img src="assets/images/img1.png" alt="" />
+          </div>
+          <div
+            class="reveal reveal-delay-1 col-span-1 row-span-1 md:col-span-2 md:row-span-1 img-zoom rounded-2xl overflow-hidden relative">
+            <img src="assets/images/img4.png" alt="" />
+          </div>
+          <div
+            class="reveal reveal-delay-3 col-span-2 row-span-2 md:col-span-6 md:row-span-2 img-zoom rounded-[1.75rem] overflow-hidden relative">
+            <video
+              class="auto-video w-full h-full object-cover"
+              src="assets/videos/videobeta.mp4"
+              autoplay
+              muted
+              lopp
+              preload="metadata"></video>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 09 — POURQUOI COLLABORER ============ -->
+    <section class="py-28 md:py-40 bg-violet-light/50">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+        <h2
+          class="reveal font-display font-extrabold uppercase leading-[0.92] text-5xl md:text-7xl letter-tight mb-16 md:mb-24">
+          Une voix.<br />Une communauté.<br />Un impact.
+        </h2>
+        <div class="grid md:grid-cols-3 gap-12 md:gap-10">
+          <div class="reveal border-t border-ink/15 pt-6">
+            <h3 class="font-display font-bold text-2xl mb-3">Créativité</h3>
+            <p class="text-ink/60">
+              Des contenus pensés pour capter l'attention.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-1 border-t border-ink/15 pt-6">
+            <h3 class="font-display font-bold text-2xl mb-3">Crédibilité</h3>
+            <p class="text-ink/60">
+              Une parole portée par un professionnel de santé.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-2 border-t border-ink/15 pt-6">
+            <h3 class="font-display font-bold text-2xl mb-3">Impact</h3>
+            <p class="text-ink/60">Une audience massive et engagée.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10 — COLLABORONS (FORM) ============ -->
+    <section id="collaborer" class="py-28 md:py-40 bg-ink text-cream">
+      <div class="max-w-[1100px] mx-auto px-6 md:px-10">
+        <h2
+          class="reveal font-display font-extrabold uppercase leading-[0.9] text-5xl md:text-7xl letter-tight">
+          Un projet<br />en tête ?
+        </h2>
+        <p
+          class="reveal reveal-delay-1 mt-6 text-cream/50 font-display text-base md:text-lg">
+          Parlons de votre prochaine campagne.
+        </p>
+
+        <a
+          id="topEmailLink"
+          href="#"
+          class="reveal reveal-delay-1 btn-arrow inline-flex mt-6 mb-16 border border-cream/20 rounded-full px-6 py-3 font-display text-sm font-semibold hover:border-violet hover:text-violet transition-colors duration-300">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" />
+          </svg>
+          Écrire par email
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+
+        <form
+          id="collabForm"
+          class="reveal reveal-delay-2 grid md:grid-cols-2 gap-x-10 gap-y-8"
+          novalidate>
+          <!-- Honeypot -->
+          <div class="hidden">
+            <label for="website">Ne pas remplir</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off" />
+          </div>
+
+          <div class="field-line px-5 py-4">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >NOM / PRÉNOM *</label
+            >
+            <input
+              required
+              type="text"
+              name="name"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="Votre nom complet" />
+            <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
+          </div>
+
+          <div class="field-line px-5 py-4">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >ENTREPRISE / MARQUE *</label
+            >
+            <input
+              required
+              type="text"
+              name="company"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="Nom de la marque" />
+            <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
+          </div>
+
+          <div class="field-line px-5 py-4">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >EMAIL PROFESSIONNEL *</label
+            >
+            <input
+              required
+              type="email"
+              name="email"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="nom@marque.com" />
+            <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
+          </div>
+
+          <div class="field-line px-5 py-4">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >TÉLÉPHONE</label
+            >
+            <input
+              type="tel"
+              name="phone"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="+221 ..." />
+          </div>
+
+          <div class="field-line px-5 py-4 relative">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >TYPE DE COLLABORATION *</label
+            >
+            <select
+              required
+              name="type"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium appearance-none pr-8 cursor-pointer">
+              <option value="" class="text-ink">Sélectionner</option>
+              <option value="contenu-sponsorise" class="text-ink">
+                Contenu sponsorisé
+              </option>
+              <option value="campagne-digitale" class="text-ink">
+                Campagne digitale
+              </option>
+              <option value="ambassadeur" class="text-ink">Ambassadeur</option>
+              <option value="evenement" class="text-ink">
+                Événement / activation
+              </option>
+              <option value="creation-contenu" class="text-ink">
+                Création de contenu
+              </option>
+              <option value="ugc" class="text-ink">UGC</option>
+              <option value="autre" class="text-ink">Autre</option>
+            </select>
+            <svg
+              class="absolute right-5 bottom-5 pointer-events-none"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+            <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
+          </div>
+
+          <div class="field-line px-5 py-4 relative">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >BUDGET</label
+            >
+            <select
+              name="budget"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium appearance-none pr-8 cursor-pointer">
+              <option value="a-definir" class="text-ink">À définir</option>
+              <option value="lt-500k" class="text-ink">&lt; 500K FCFA</option>
+              <option value="500k-1m" class="text-ink">500K – 1M FCFA</option>
+              <option value="1m-2.5m" class="text-ink">1M – 2.5M FCFA</option>
+              <option value="2.5m-plus" class="text-ink">2.5M+</option>
+              <option value="a-discuter" class="text-ink">À discuter</option>
+            </select>
+            <svg
+              class="absolute right-5 bottom-5 pointer-events-none"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+
+          <div class="field-line px-5 py-4">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >DATE / PÉRIODE</label
+            >
+            <input
+              type="text"
+              name="period"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="Ex : Octobre 2026" />
+          </div>
+
+          <div class="field-line px-5 py-4">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >LIEN DU BRIEF</label
+            >
+            <input
+              type="url"
+              name="brief"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="https://..." />
+            <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
+          </div>
+
+          <div class="field-line px-5 py-4 md:col-span-2">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >COMMENT AVEZ-VOUS CONNU MÉDECIN CONSCIENT ?</label
+            >
+            <input
+              type="text"
+              name="source"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30"
+              placeholder="TikTok, Instagram, recommandation..." />
+          </div>
+
+          <div class="field-line px-5 py-4 md:col-span-2">
+            <label
+              class="block font-display text-xs letter-wide text-cream/40 mb-2"
+              >MESSAGE *</label
+            >
+            <textarea
+              required
+              name="message"
+              rows="4"
+              class="w-full bg-transparent outline-none text-cream text-lg font-medium placeholder:text-cream/30 resize-none"
+              placeholder="Décrivez votre projet..."></textarea>
+            <p class="field-error-msg hidden text-red-400 text-xs mt-1"></p>
+          </div>
+
+          <div class="md:col-span-2 mt-6">
+            <button
+              type="submit"
+              id="submitBtn"
+              class="w-full md:w-auto btn-arrow bg-violet text-cream px-10 py-5 rounded-full font-display font-bold text-base hover:bg-cream hover:text-ink transition-colors duration-300">
+              <span id="submitLabel">Envoyer ma demande</span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </button>
+            <p
+              id="formSuccess"
+              class="hidden mt-5 text-violet-light font-display font-medium">
+              Votre demande a bien été envoyée. Merci — nous revenons vers vous
+              rapidement.
+            </p>
+            <p
+              id="formError"
+              class="hidden mt-5 text-red-400 font-display font-medium">
+              Une erreur est survenue. Merci de vérifier les champs signalés
+              ci-dessus.
+            </p>
+          </div>
+        </form>
+
+        <!-- ============ CONTACT DIRECT ============ -->
+        <div
+          class="reveal mt-16 md:mt-20 border border-cream/15 rounded-3xl p-8 md:p-12 text-center">
+          <p
+            class="font-display text-xs md:text-sm letter-wide text-cream/40 mb-6">
+            VOUS PRÉFÉREZ UN CONTACT DIRECT ?
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              id="directEmailLink"
+              href="#"
+              class="btn-arrow border border-cream/25 rounded-full px-8 py-4 font-display font-semibold text-sm hover:border-violet hover:text-violet transition-colors duration-300">
+              Écrire par email
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="py-16 border-t border-ink/10">
+      <div
+        class="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div>
+          <p class="font-display font-extrabold text-lg">
+            MÉDECIN <span class="text-violet">CONSCIENT</span>
+          </p>
+          <p class="text-ink/50 text-sm mt-1">Santé. Éducation. Impact.</p>
+        </div>
+
+        <div
+          class="flex flex-wrap gap-x-8 gap-y-2 font-display text-sm font-medium">
+          <a
+            href="https://www.tiktok.com/@medecin_conscient?_r=1&_t=ZS-99cRrbFBkq0"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-violet transition-colors"
+            >TikTok</a
+          >
+          <a
+            href="https://www.instagram.com/medecinconscient?stkn=MTh5ejA1ZHozZmxjcw=="
+            target="_blank"
+            rel="noopener"
+            class="hover:text-violet transition-colors"
+            >Instagram</a
+          >
+          <a
+            href="https://www.facebook.com/share/18tf2bpnhR/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-violet transition-colors"
+            >Facebook</a
+          >
+          <a
+            href="https://www.threads.com/@medecinconscient"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-violet transition-colors"
+            >Threads</a
+          >
+          <a
+            id="footerEmailLink"
+            href="#"
+            class="hover:text-violet transition-colors"
+            >Email</a
+          >
+        </div>
+      </div>
+      <p
+        class="max-w-[1400px] mx-auto px-6 md:px-10 mt-10 text-ink/30 text-xs font-display">
+        &copy; 2026 Médecin Conscient
+      </p>
     </footer>
 
-    <!-- ==========================================================
-       BOUTONS FLOTTANTS
-       ========================================================== -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-      <a
-        href="#"
-        data-whatsapp-link
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contacter par WhatsApp"
-        class="btn-float flex items-center gap-2 bg-[#25D366] text-white font-semibold pl-3.5 pr-3.5 sm:pr-5 py-3.5 rounded-full shadow-lg"
-      >
-        <i data-lucide="message-circle" class="w-5 h-5 shrink-0"></i>
-        <span class="hidden sm:inline text-sm">WhatsApp</span>
-      </a>
-      <a
-        href="#"
-        data-call-link
-        aria-label="Appeler le médecin"
-        class="btn-float flex items-center gap-2 bg-brand text-white font-semibold pl-3.5 pr-3.5 sm:pr-5 py-3.5 rounded-full shadow-lg"
-      >
-        <i data-lucide="phone" class="w-5 h-5 shrink-0"></i>
-        <span class="hidden sm:inline text-sm">Appeler</span>
-      </a>
-    </div>
-
-    <!-- ==========================================================
-       MODAL DE CONFIRMATION
-       ========================================================== -->
-    <div
-      id="confirmation-modal"
-      class="hidden fixed inset-0 z-[60] flex items-center justify-center px-5"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-    >
-      <div
-        id="modal-overlay"
-        class="absolute inset-0 bg-ink/50"
-        aria-hidden="true"
-      ></div>
-
-      <div
-        class="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center"
-      >
-        <span
-          class="mx-auto w-14 h-14 rounded-full bg-brand-light flex items-center justify-center"
-        >
-          <i data-lucide="check" class="w-7 h-7 text-brand-dark"></i>
-        </span>
-        <h3 id="modal-title" class="mt-5 text-lg font-bold text-ink">
-          Demande préparée avec succès
-        </h3>
-        <p class="mt-3 text-sm text-ink-soft leading-relaxed">
-          Votre demande a bien été préparée. Vous pouvez poursuivre l'échange
-          via WhatsApp.
-        </p>
-        <div class="mt-7 flex flex-col gap-3">
-          <a
-            id="modal-whatsapp-btn"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:opacity-90 text-white font-semibold px-8 py-3 rounded-full transition-opacity"
-          >
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            Continuer sur WhatsApp
-          </a>
-          <button
-            id="modal-close-btn"
-            class="inline-flex items-center justify-center text-ink-soft hover:text-ink font-semibold px-8 py-2 transition-colors"
-          >
-            Fermer
-          </button>
-        </div>
-      </div>
-    </div>
+    <!-- ============ BACK TO TOP ============ -->
+    <button
+      id="backToTop"
+      aria-label="Remonter en haut de page"
+      class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-ink text-cream flex items-center justify-center shadow-[0_10px_30px_-8px_rgba(17,17,17,0.5)] opacity-0 translate-y-4 pointer-events-none transition-all duration-400 hover:bg-violet">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+        <path d="M12 19V5M6 11l6-6 6 6" />
+      </svg>
+    </button>
 
     <script src="js/script.js"></script>
-    <script>
-      lucide.createIcons();
-    </script>
   </body>
 </html>
